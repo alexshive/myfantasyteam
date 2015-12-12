@@ -1,0 +1,43 @@
+
+<div class="row intro" ng-hide="uid" ng-cloak>
+
+	<div class="col-sm-6">
+		<h1>Fantasy Zone</h1>
+		<h2>Battle weekly for pride</h2>
+		<h3>Play and practice for free</h3>
+
+  		<!-- <a class="btn btn-block btn-primary" ng-href="#/login">Login</a> -->
+  	</div>
+  	<div class="col-sm-6">
+		<div ng-controller="LoginCtrl">
+			<ng-include src="'views/login.html'"></ng-include>
+		</div>
+  	</div>
+
+</div>
+
+<div ng-show="uid" ng-cloak>
+	<div class="col-sm-12 bg-success" ng-if="currentLocation === 'welcome'">
+		<p>Welcome {{username}}!</p>
+	</div>
+
+	<div class="col-sm-6">
+		<h1>Player News</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid nihil eveniet dolores pariatur quas. Aperiam ullam dicta dolore expedita, repudiandae rerum sint, quibusdam omnis iure doloribus adipisci ab quo necessitatibus?</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid nihil eveniet dolores pariatur quas. Aperiam ullam dicta dolore expedita, repudiandae rerum sint, quibusdam omnis iure doloribus adipisci ab quo necessitatibus?</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid nihil eveniet dolores pariatur quas. Aperiam ullam dicta dolore expedita, repudiandae rerum sint, quibusdam omnis iure doloribus adipisci ab quo necessitatibus?</p>
+	</div>
+
+	<div class="col-sm-6">
+
+		<h2>Top players this week</h2>
+		<table>
+			<tr>
+				<td>1.</td>
+				<td>Tom Brady</td>
+				<td>30.0</td>
+			</tr>
+		</table>
+
+	</div>
+</div>

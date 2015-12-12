@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-sm-12">
+		<h2 class="h2">Players for week {{currentWeek}}</h2>
+		<form class="navbar-form navbar-right" ng-submit="deepSearch()">
+			<div class="form-group">
+				<input type="search" class="form-control" ng-model="searchUser" placeholder="Search User..." />
+				<button type="submit" class="btn btn-default" ng-disabled="isSearching === true"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+				<a ng-click="clearSearch()" class="btn btn-danger" ng-show="searchResults.length > 0" ng-cloak>Clear Results</a>
+			</div>
+		</form>
+		<ul class="list-group">
+			<li class="list-group-item users" ng-repeat="user in userList">
+				
+				<a class="name">{{user.username}}</a>
+
+				<div class="buttons">
+
+					<div ng-show="users.draftList.indexOf(user.id) < 0 && users.gameList.indexOf(user.id) < 0">
+						<a ng-click="challengePlayer(user.id)" class="btn btn-primary" ng-hide="friends.draftList.indexOf(user.id) >= 0 || users.draftList.indexOf(user.id) >= 0 || users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0">Challenge</a>
+						<a disabled ng-show="users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0" class="btn btn-default" ng-cloak>Challenge Sent</a>
+					</div>
+
+					<a ng-click="addFriend(user.id)" ng-show="user.status == 'available'" class="btn btn-default">Send Friend Request</a>
+
+					<span class="btn btn-success" disabled ng-show="user.status == 'accepted'"><span class="glyphicon glyphicon-ok"></span> Friends</span>
+
+					<span class="btn btn-default" disabled ng-show="user.status == 'sent'">Friend Request Sent</span>
+
+					<a ng-click="acceptFriend(user.id)" class="btn btn-primary" ng-show="user.status == 'requested'">Accept Friendship</a>
+
+				</div>
+
+			</li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,6 @@
+Week: 
+<div class="btn-toolbar">
+	<div ng-repeat="week in weeks" class="btn-group">
+		<a ng-click="setWeek(week)" class="btn btn-default" ng-class="{'active': currentWeek == week}">{{week}}</a>
+	</div>
+</div>

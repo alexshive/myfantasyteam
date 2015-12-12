@@ -1,0 +1,23 @@
+
+<h1>Roster Change</h1>
+
+<form ng-submit="updateRoster()">
+
+	<h3>Selected player</h3>
+	<table class="table table-striped table-hover">
+		<tbody>
+			<tr ng-include src="'views/player-row.html'" ng-init="rosterchange = false;rosterdisabled = true;" class="player-row"></tr>
+		</tbody>
+	</table>
+	
+	<h3>Swap with player</h3>
+	<table class="table table-striped table-hover">
+		<tbody>
+			<tr ng-repeat="r in availableRoster" ng-include src="'views/player-row.html'" ng-init="showteam = true;showplayerimage = false;rosterchange = true;player = r;rosterdisabled = false" class="player-row"></tr>
+		</tbody>
+	</table>
+
+	<input type="submit" value="Submit Roster Change" class="btn btn-primary" ng-disabled="!existingPlayer" />
+	<a ng-href="{{backButton}}" class="btn btn-default">Cancel</a>
+
+</form>

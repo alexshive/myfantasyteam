@@ -1,0 +1,39 @@
+<h3>Selected Player</h3>
+<table>
+	<tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = selectedPlayer;position = selectedPlayer.pos;selected = false;" ng-if="selectedPlayer"></tr>
+	</tr>
+</table>
+
+<br />
+
+<h3>Replace with existing</h3>
+
+<table data-ng-show="selectedPlayer" class="table table-striped">
+	<thead>
+		<tr ng-include src="'views/player-row-header.html'" class="player-row-header" ng-init="select = true;showstats = false;rosterchange = true;showpos = true;" ng-if="selectedPlayer"></tr>
+	</thead>
+	<tbody>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.QB;position = 'QB';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'QB'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.RB1;position = 'RB1';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'RB'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.RB2;position = 'RB2';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'RB'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.WR1;position = 'WR1';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'WR'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.WR2;position = 'WR2';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'WR'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.TE;position = 'TE';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'TE'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.WR3;position = 'WR3';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'WR'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.K;position = 'K';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'K'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.DEF;position = 'DEF';rosterchange = true;showpos = true;" ng-if="selectedPlayer.pos === 'DEF'"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.BN1;position = 'BN1';rosterchange = true;showpos = true;" ng-if="selectedPlayer"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.BN2;position = 'BN2';rosterchange = true;showpos = true;" ng-if="selectedPlayer"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.BN3;position = 'BN3';rosterchange = true;showpos = true;" ng-if="selectedPlayer"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.BN4;position = 'BN4';rosterchange = true;showpos = true;" ng-if="selectedPlayer"></tr>
+		<tr ng-include src="'views/player-row.html'" class="player-row" ng-init="player = my_players.BN5;position = 'BN5';rosterchange = true;showpos = true;" ng-if="selectedPlayer"></tr>
+	</tbody>
+</table>
+
+<br />
+
+<p class="text-center">
+	<a ng-click="update()" class="btn btn-primary">Confirm Replace</a>
+	<a ng-click="cancel()" class="btn btn-link">Cancel</a>
+</p>

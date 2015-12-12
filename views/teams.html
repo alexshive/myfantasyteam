@@ -1,0 +1,12 @@
+<ng-include src="'views/teams/header.html'"></ng-include>
+
+<div class="alert bg-success" ng-cloak ng-show="success">{{success}}</div>
+
+<div class="row">
+	<div class="col-sm-12">
+		<h4 ng-if="!my_teams">No teams</h4>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="team in my_teams"><a class="name" ng-href="#/teams/edit/{{team.team_id}}">{{team.name}}</a></li>
+		</ul>
+	</div>
+</div>

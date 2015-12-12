@@ -1,0 +1,25 @@
+<td class="add" ng-if="add == true && selected == false"></td>
+<td class="sort" ng-if="rosterchange == true"></td>
+<td class="pos" ng-if="showpos == true">POS</td>
+<td class="select" ng-if="changeRoster == true">Move</td>
+<td class="player"></td>
+<td class="opp" ng-if="showinfo">Opp</td>
+<td class="pass-yds" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">Passing Yds</td>
+<td class="pass-td" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">Passing TD</td>
+<td class="pass-int" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">Passing INT</td>
+<td class="rush-yds" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">Rushing Yds</td>
+<td class="rush-td" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">Rushing TD</td>
+<td class="pat-made" ng-if="showstats == true && player.pos == 'K'">PAT Made</td>
+<td class="kick-yds" ng-if="showstats == true && player.pos == 'K'">0-19</td>
+<td class="kick-yds" ng-if="showstats == true && player.pos == 'K'">20-29</td>
+<td class="kick-yds" ng-if="showstats == true && player.pos == 'K'">30-39</td>
+<td class="kick-yds" ng-if="showstats == true && player.pos == 'K'">40-49</td>
+<td class="kick-yds" ng-if="showstats == true && player.pos == 'K'">50+</td>
+<td class="sack" ng-if="showstats == true && player.pos == 'DEF'">Sack</td>
+<td class="int" ng-if="showstats == true && player.pos == 'DEF'">INT</td>
+<td class="fumble" ng-if="showstats == true && player.pos == 'DEF'">Fumble Rec</td>
+<td class="safety" ng-if="showstats == true && player.pos == 'DEF'">Safety</td>
+<td class="td" ng-if="showstats == true && player.pos == 'DEF'">TD</td>
+<td class="td-ret" ng-if="showstats == true && player.pos == 'DEF'">TD Ret</td>
+<td class="pts-allowed" ng-if="showstats == true && player.pos == 'DEF'">Pts Allowed</td>
+<td class="week-points" ng-if="showpoints">Points</td>

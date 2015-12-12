@@ -1,0 +1,21 @@
+<h2>Register</h2>
+
+<div class="error bg-danger" ng-cloak ng-show="error">{{error}}</div>
+
+<form ng-submit="createNewAccount()">
+		<div class="form-group">
+			<span class="form-label">User: </span>
+			<input name="user" type="text" ng-model="user" class="form-control" />
+		</div>
+		<div class="form-group">
+			<span class="form-label">Password: </span>
+			<input name="password" type="password" ng-model="password" class="form-control" />
+		</div>
+		<div class="form-group">
+			<span class="form-label">Confirm Password: </span>
+			<input name="cpassword" type="password" ng-model="cpassword" class="form-control" />
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Register" class="btn btn-primary" />
+		</div>
+</form>

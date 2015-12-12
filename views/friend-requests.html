@@ -1,0 +1,13 @@
+<h2>Friend Requests</h2>
+<ul class="list-group">
+	<li class="list-group-item" ng-repeat="friend in friends" ng-hide="friend.id === uid || friendReceiveRequest.indexOf(friend.id) < 0 || friendList.indexOf(friend.id) >= 0" ng-cloak>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="name">{{friend.name}}</div>
+			</div>
+			<div class="col-sm-6 text-right buttons">
+				<a ng-click="confirmFriend(friend.id)" ng-show="friendReceiveRequest.indexOf(friend.id) >= 0" class="btn btn-success">Confirm Friend</a>
+			</div>
+		</div>
+	</li>
+</ul>

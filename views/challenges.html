@@ -1,0 +1,86 @@
+<div class="row">
+	
+	<div class="col-sm-12">
+		<ng-include src="'views/weeks.html'"></ng-include>
+	</div>
+
+	<div class="col-sm-4">
+		<h2>Friend Challenges</h2>
+		<ul class="list-group">
+			<li class="list-group-item" ng-show="friends.challenges.length === 0" ng-cloak>
+				No friend challenges
+			</li>
+			<li class="list-group-item" ng-repeat="friend in friends.challenges">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="name">{{friend.name}}</div>
+					</div>
+					<div class="col-sm-6 text-right">
+
+						<a ng-href="#/challenge/{{friend.id}}" ng-if="friends.draftList.indexOf(friend.id) < 0 && friends.gameList.indexOf(friend.id) < 0 && friends.sentList.indexOf(friend.id) < 0 && friends.receivedList.indexOf(friend.id) < 0" class="btn btn-block btn-primary">Challenge</a>
+
+						<span ng-show="friends.sentList.indexOf(friend.id) >= 0 && friends.receivedList.indexOf(friend.id) < 0">Pending response</span>
+
+						<a ng-href="#/draft/{{friend.challenge_id}}" ng-if="friends.draftList.indexOf(friend.id) >= 0" class="btn btn-primary">Enter Draft</a>
+
+						<a ng-if="friends.draftList.indexOf(friend.id) < 0 && friends.gameList.indexOf(friend.id) >= 0" ng-href="#/game/{{friend.challenge_id}}" class="btn btn-success">Game Center</a>
+
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="col-sm-4">
+		<h2>Player Challenges</h2>
+		<ul class="list-group">
+			<li class="list-group-item" ng-show="users.challenges.length === 0" ng-cloak>
+				No player challenges
+			</li>
+			<li class="list-group-item" ng-repeat="user in users.challenges">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="name">{{user.name}}</div>
+					</div>
+					<div class="col-sm-6 text-right">
+
+						<a ng-href="#/draft/{{user.challenge_id}}" ng-if="users.draftList.indexOf(user.id) >= 0" class="btn btn-primary">Enter Draft</a>
+
+						<a ng-if="users.draftList.indexOf(user.id) < 0 && users.gameList.indexOf(user.id) >= 0" ng-href="#/game/{{user.challenge_id}}" class="btn btn-success">Game Center</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="col-sm-4">
+		<h2>Challenge Requests</h2>
+		<ul class="list-group">
+			<li class="list-group-item" ng-show="users.received.length === 0 && friends.received.length === 0" ng-cloak>
+				No challenge requests
+			</li>
+			<!-- Friends -->
+			<li class="list-group-item" ng-repeat="friend in friends.received">
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<div class="name"><b>Friend:</b> {{friend.name}}</div>
+					</div>
+					<div class="col-sm-12 text-center">
+						<a ng-click="acceptChallenge(friend.challenge_id)" class="btn btn-primary">Accept</a>
+						<a ng-click="rejectChallenge(friend.challenge_id)" class="btn btn-danger">Decline</a>
+					</div>
+				</div>
+			</li>
+			<!-- Users -->
+			<li class="list-group-item" ng-repeat="user in users.received">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="name">{{user.name}}</div>
+					</div>
+					<div class="col-sm-8 text-right buttons">
+						<a ng-click="acceptChallenge(user.challenge_id)" class="btn btn-primary">Accept</a>
+						<a ng-click="rejectChallenge(user.challenge_id)" class="btn btn-danger">Decline</a>
+					</div>
+				</div>
+			</li>
+		</li>
+	</div>
+</div>
