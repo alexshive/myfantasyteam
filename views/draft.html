@@ -16,8 +16,11 @@
 		<h3>Round {{round}}</h3>
 
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-10">
 				<input type="text" class="form-control" ng-change="search()" ng-model="searchPlayer" placeholder="Search for Player" />
+			</div>
+			<div class="col-sm-2 text-right">
+				<a ng-click="clearSearch()" class="btn btn-block btn-default">Clear</a>
 			</div>
 			<div class="col-sm-12">
 				<div class="btn-group btn-group-justified" role="group">
