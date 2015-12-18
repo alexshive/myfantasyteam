@@ -6,14 +6,14 @@
 	<h3>Selected player</h3>
 	<table class="table table-striped table-hover">
 		<tbody>
-			<tr ng-include src="'views/player-row.html'" ng-init="rosterchange = false;rosterdisabled = true;" class="player-row"></tr>
+			<tr ng-include src="'views/player-row.html'" ng-init="showpos = true;rosterchange = false;rosterdisabled = true;" class="player-row"></tr>
 		</tbody>
 	</table>
-	
+
 	<h3>Swap with player</h3>
 	<table class="table table-striped table-hover">
 		<tbody>
-			<tr ng-repeat="r in availableRoster" ng-include src="'views/player-row.html'" ng-init="showteam = true;showplayerimage = false;rosterchange = true;player = r;rosterdisabled = false" class="player-row"></tr>
+			<tr ng-repeat="r in availableRoster" ng-include src="'views/player-row.html'" ng-init="showpos = true;showteam = true;showplayerimage = false;rosterchange = true;player = r;rosterdisabled = false" class="player-row"></tr>
 		</tbody>
 	</table>
 

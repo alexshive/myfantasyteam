@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="col-sm-12" ng-if="draft_order">
-		<h3 class="text-center" ng-show="draft_order[round] === uid" ng-cloak>Select a player below</h3>
+        <h3 class="text-center" ng-show="draft_order[round] === uid" ng-cloak>Select a player below</h3>
 		<div class="alert alert-info text-center" ng-show="draft_order[round] !== uid" ng-cloak>Please wait for your turn in the next round.</div>
 	</div>
 
@@ -16,10 +16,10 @@
 		<h3>Round {{round}}</h3>
 
 		<div class="row">
-			<div class="col-sm-10">
+			<div class="col-sm-10" ng-class="{'col-sm-12': searchPlayer.length === 0}">
 				<input type="text" class="form-control" ng-change="search()" ng-model="searchPlayer" placeholder="Search for Player" />
 			</div>
-			<div class="col-sm-2 text-right">
+			<div class="col-sm-2 text-right" ng-show="searchPlayer.length > 0">
 				<a ng-click="clearSearch()" class="btn btn-block btn-default">Clear</a>
 			</div>
 			<div class="col-sm-12">
@@ -59,9 +59,9 @@
 	<div class="col-sm-5">
 
 		<h3>Player Roster</h3>
-	
+
 		<ng-include src="draftURL" onload="roster = my_players;showpos = true;showteam = true;showplayerimage = false;" ng-if="my_players"></ng-include>
-	
+
 	</div>
 
 

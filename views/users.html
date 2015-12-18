@@ -10,7 +10,7 @@
 		</form>
 		<ul class="list-group">
 			<li class="list-group-item users" ng-repeat="user in userList">
-				
+
 				<a class="name">{{user.username}}</a>
 
 				<div class="buttons">
@@ -20,13 +20,13 @@
 						<a disabled ng-show="users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0" class="btn btn-default" ng-cloak>Challenge Sent</a>
 					</div>
 
-					<a ng-click="addFriend(user.id)" ng-show="user.status == 'available'" class="btn btn-default">Send Friend Request</a>
+					<a ng-click="addFriend(user.id)" ng-show="user.status == 'available'" ng-hide="user.status == 'sent' || friendSentRequest.indexOf(user.id) >= 0 || user.status != 'available'" class="btn btn-default">Send Friend Request</a>
 
-					<span class="btn btn-success" disabled ng-show="user.status == 'accepted'"><span class="glyphicon glyphicon-ok"></span> Friends</span>
+					<span class="btn btn-success" disabled ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0"><span class="glyphicon glyphicon-ok"></span> Friends</span>
 
-					<span class="btn btn-default" disabled ng-show="user.status == 'sent'">Friend Request Sent</span>
+					<span class="btn btn-default" disabled ng-show="user.status === 'sent' || friendSentRequest.indexOf(user.id) >= 0">Friend Request Sent</span>
 
-					<a ng-click="acceptFriend(user.id)" class="btn btn-primary" ng-show="user.status == 'requested'">Accept Friendship</a>
+          <a ng-click="acceptFriend(user.id)" class="btn btn-primary" ng-show="user.status === 'requested'" ng-hide="friendAccepted.indexOf(user.id) >= 0 || user.status !== 'requested'">Accept Friendship</a>
 
 				</div>
 

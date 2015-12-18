@@ -7,7 +7,7 @@
 	</div>
 	<div class="col-sm-12">
 	    <ng-include src="'views/roster.html'" ng-init="showteam = true;roster = my_players;changeRoster = true;showpos = true;showpoints = true;" ng-if="game > 0"></ng-include>
-	    <div ng-if="game < 1 && gameWeek === currentWeek" ng-cloak>
+      <div ng-if="game < 1 && gameWeek === currentWeek" ng-cloak>
 	    	<h2>Setup your lineup for this week</h2>
 	    	<a ng-href="#/practice/draft/{{currentWeek}}" class="btn btn-primary">Enter Draft</a>
 	    </div>

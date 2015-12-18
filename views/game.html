@@ -4,7 +4,10 @@
 		<h2 class="h2">Game Center</h2>
 	</div>
 	<div class="col-sm-6 text-right">
+		Game week: {{gameWeek}}
+		Current Week: {{currentWeek}}
 		<!-- <a ng-href="#/game/{{gameID}}/settings" class="btn btn-default">Settings</a> -->
+
 	</div>
 
 	<div class="col-sm-12" ng-show="message" ng-cloak>
@@ -22,7 +25,7 @@
 			</div>
 		</div>
 		<ng-include src="'views/roster.html'" ng-init="showteam = true;roster = my_players;changeRoster = true;showpos = true;showpoints = true;" ng-if="my_players"></ng-include>
-		
+
 	</div>
 
 	<div class="col-sm-6">
@@ -34,7 +37,7 @@
 				<h3>{{their_points}}</h3>
 			</div>
 		</div>
-		
+
 		<ng-include src="'views/roster.html'" ng-init="showteam = true;roster = their_players;showpos = true;showpoints = true" ng-if="their_players"></ng-include>
 
 	</div>

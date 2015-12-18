@@ -4,60 +4,7 @@
 	</thead>
 	<tbody>
 
-		<!-- QB -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'QB'" class="player-row" ng-if="!roster.QB"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.QB;position = 'QB'" class="player-row" ng-if="roster.QB"></tr>
+		<tr ng-include="'views/player-row.html'" class="player-row" ng-repeat="player in roster"></tr>
 
-		<!-- RB1 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'RB'" class="player-row" ng-if="!roster.RB1"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.RB1;position = 'RB'" class="player-row" ng-if="roster.RB1"></tr>
-
-		<!-- RB2 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'RB'" class="player-row" ng-if="!roster.RB2"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.RB2;position = 'RB'" class="player-row" ng-if="roster.RB2"></tr>
-
-		<!-- WR1 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'WR'" class="player-row" ng-if="!roster.WR1"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.WR1;position = 'WR'" class="player-row" ng-if="roster.WR1"></tr>
-
-		<!-- WR2 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'WR'" class="player-row" ng-if="!roster.WR2"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.WR2;position = 'WR'" class="player-row" ng-if="roster.WR2"></tr>
-
-		<!-- TE -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'TE'" class="player-row" ng-if="!roster.TE"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.TE;position = 'TE'" class="player-row" ng-if="roster.TE"></tr>
-
-		<!-- WR3 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'W/R'" class="player-row" ng-if="!roster.WR3"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.WR3;position = 'W/R'" class="player-row" ng-if="roster.WR3"></tr>
-
-		<!-- K -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'K'" class="player-row" ng-if="!roster.K"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.K;position = 'K'" class="player-row" ng-if="roster.K"></tr>
-
-		<!-- DEF -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'DEF'" class="player-row" ng-if="!roster.DEF"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.DEF;position = 'DEF'" class="player-row" ng-if="roster.DEF"></tr>
-
-		<!-- BN1 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'BN'" class="player-row" ng-if="!roster.BN1"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.BN1;position = 'BN'" class="player-row" ng-if="roster.BN1"></tr>
-
-		<!-- BN2 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'BN'" class="player-row" ng-if="!roster.BN2"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.BN2;position = 'BN'" class="player-row" ng-if="roster.BN2"></tr>
-
-		<!-- BN3 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'BN'" class="player-row" ng-if="!roster.BN3"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.BN3;position = 'BN'" class="player-row" ng-if="roster.BN3"></tr>
-
-		<!-- BN4 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'BN'" class="player-row" ng-if="!roster.BN4"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.BN4;position = 'BN'" class="player-row" ng-if="roster.BN4"></tr>
-
-		<!-- BN5 -->
-		<tr ng-include src="'views/player-row.html'" ng-init=" position = 'BN'" class="player-row" ng-if="!roster.BN5"></tr>
-		<tr ng-include="'views/player-row.html'" ng-init="player = roster.BN5;position = 'BN'" class="player-row" ng-if="roster.BN5"></tr>
 	</tbody>
 </table>
