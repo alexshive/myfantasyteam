@@ -20,6 +20,6 @@
 		<tr ng-include src="'views/player-row-header.html'" class="player-row-header" ng-if="!selectedPlayer" ng-init="add = false;showstats = true;selected = false;showpoints = true;"></tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="player in players" ng-include src="'views/player-row.html'" ng-init="position = player.pos;add = false;selected = false;showstats = true;showpoints = true;"></tr>
+		<tr ng-repeat="player in pagedItems[currentPage] | orderBy:sortingOrder:reverse | filter: searchPlayer" ng-include src="'views/player-row.html'" ng-init="position = player.pos;add = false;selected = false;showstats = true;showpoints = true;"></tr>
 	</tbody>
 </table>

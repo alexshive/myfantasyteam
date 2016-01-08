@@ -9,9 +9,9 @@
 <td class="select" ng-if="changeRoster == true"><a name="selectedPosition" ng-href="{{rosterUrl}}/{{team_id}}/{{player.id}}" class="btn btn-primary btn-xs" ng-show="teamsPlayed.indexOf(player.team_id) < 0 && gameWeek >= currentWeek" ng-cloak><span class="glyphicon glyphicon-menu-hamburger"></span></a></td>
 
 <td class="player">
-	<span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id" /></span>
+	<span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id"></span>
 	<span class="player-image" ng-if="showplayerimage">
-		<span class="image"><img ng-src="images/players/{{player.id}}.png" /></span>
+		<span class="image"><img ng-src="images/players/{{player.id}}.png"></span>
 	</span>
 	<a ng-click="playerDetails(player)" class="btn btn-flat">{{player.name || '(empty)'}}</a>
 </td>
