@@ -1,15 +1,20 @@
-<div class="row">
 	
+	<div class="content-heading">
+		<h1 class="heading">Challenges</h1>
+	</div>
+
 	<div class="col-sm-12">
 		<ng-include src="'views/weeks.html'"></ng-include>
 	</div>
 
 	<div class="col-sm-4">
 		<h2>Friend Challenges</h2>
+		<div class="card" ng-show="friends.challenges.length === 0" ng-cloak>
+		    <div class="card-main">
+		        <div class="card-inner"> No friend challenges </div>
+		    </div>
+		</div>
 		<ul class="list-group">
-			<li class="list-group-item" ng-show="friends.challenges.length === 0" ng-cloak>
-				No friend challenges
-			</li>
 			<li class="list-group-item" ng-repeat="friend in friends.challenges">
 				<div class="row">
 					<div class="col-sm-6">
@@ -32,10 +37,12 @@
 	</div>
 	<div class="col-sm-4">
 		<h2>Player Challenges</h2>
+		<div class="card" ng-show="users.challenges.length === 0" ng-cloak>
+		    <div class="card-main">
+		        <div class="card-inner"> No player challenges </div>
+		    </div>
+		</div>
 		<ul class="list-group">
-			<li class="list-group-item" ng-show="users.challenges.length === 0" ng-cloak>
-				No player challenges
-			</li>
 			<li class="list-group-item" ng-repeat="user in users.challenges">
 				<div class="row">
 					<div class="col-sm-6">
@@ -53,10 +60,12 @@
 	</div>
 	<div class="col-sm-4">
 		<h2>Challenge Requests</h2>
+		<div class="card" ng-show="users.received.length === 0 && friends.received.length === 0" ng-cloak>
+		    <div class="card-main">
+		        <div class="card-inner"> No challenge requests </div>
+		    </div>
+		</div>
 		<ul class="list-group">
-			<li class="list-group-item" ng-show="users.received.length === 0 && friends.received.length === 0" ng-cloak>
-				No challenge requests
-			</li>
 			<!-- Friends -->
 			<li class="list-group-item" ng-repeat="friend in friends.received">
 				<div class="row">
@@ -83,4 +92,3 @@
 			</li>
 		</li>
 	</div>
-</div>

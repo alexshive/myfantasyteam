@@ -1,6 +1,6 @@
 
 <td class="sort" ng-if="organize == true"><span class="handle">::</span></td>
-<td class="add" ng-if="add == true && selected == false"><a ng-click="select(player)" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></a></td>
+<td class="add" ng-if="add == true && selected == false"><a ng-click="select(player)" class="btn btn-raised btn-primary"><span class="glyphicon glyphicon-plus"></span></a></td>
 
 <td class="position" ng-if="rosterchange == true"><input type="radio" ng-model="existingPlayer" name="change" ng-change="setExistingPlayer(player.id)" value="{{player.id}}" ng-disabled="rosterdisabled" ng-show="teamsPlayed.indexOf(player.team_id) < 0 && gameWeek >= currentWeek" /></td>
 
@@ -9,31 +9,31 @@
 <td class="select" ng-if="changeRoster == true"><a name="selectedPosition" ng-href="{{rosterUrl}}/{{team_id}}/{{player.id}}" class="btn btn-primary btn-xs" ng-show="teamsPlayed.indexOf(player.team_id) < 0 && gameWeek >= currentWeek" ng-cloak><span class="glyphicon glyphicon-menu-hamburger"></span></a></td>
 
 <td class="player">
-	<span class="team"><img ng-src="images/teams/{{logos[player.team_id]}}.png" ng-if="player.id" /><img ng-src="images/team.png" ng-if="!player.id" /></span>
+	<span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id" /></span>
 	<span class="player-image" ng-if="showplayerimage">
-		<span class="image"><img ng-src="images/players/{{player.id}}.png" err-src="images/player.png" /></span>
+		<span class="image"><img ng-src="images/players/{{player.id}}.png" /></span>
 	</span>
-	<a ng-click="playerDetails(player)" class="name">{{player.name || '(empty)'}}</a>
+	<a ng-click="playerDetails(player)" class="btn btn-flat">{{player.name || '(empty)'}}</a>
 </td>
 
 <td ng-if="showinfo" class="opp">{{info[player.id].opponent || 'N/A'}}</td>
 
-<td class="pass-yds" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[5] || "-"}}</td>
-<td class="pass-td" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[6] || "-"}}</td>
-<td class="pass-int" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[7] || "-"}}</td>
-<td class="rush-yds" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[14] || "-"}}</td>
-<td class="rush-td" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[15] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[33] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[35] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[36] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[37] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[38] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[39] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[45] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[46] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[47] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[49] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[50] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[53] || "-"}}</td>
-<td class="text-center" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[54] || "-"}}</td>
+<td class="stats pass-yds" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[5] || "-"}}</td>
+<td class="stats pass-td" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[6] || "-"}}</td>
+<td class="stats pass-int" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[7] || "-"}}</td>
+<td class="stats rush-yds" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[14] || "-"}}</td>
+<td class="stats rush-td" ng-if="showstats == true && player.pos != 'K' && player.pos != 'DEF'">{{stats[player.id].stats[15] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[33] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[35] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[36] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[37] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[38] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'K'">{{stats[player.id].stats[39] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[45] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[46] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[47] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[49] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[50] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[53] || "-"}}</td>
+<td class="stats" ng-if="showstats == true && player.pos == 'DEF'">{{stats[player.id].stats[54] || "-"}}</td>
 <td class="week-points" ng-if="showpoints">{{stats[player.id].week_points || "0.00"}}</td>

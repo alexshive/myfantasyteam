@@ -23,7 +23,7 @@
 				<a ng-click="clearSearch()" class="btn btn-block btn-default">Clear</a>
 			</div>
 			<div class="col-sm-12">
-				<div class="btn-group btn-group-justified" role="group">
+				<div class="btn-group btn-group-justified btn-group-raised" role="group">
 					<a href ng-click="setPosition(option)" ng-repeat="option in options" ng-class="{'active': option == position}" class="btn btn-default">{{option}}</a>
 				</div>
 			</div>
@@ -40,7 +40,7 @@
 
 		<table class="table table-striped table-hover">
 			<tbody>
-				<tr ng-repeat="rank in pagedItems[currentPage] | orderBy:sortingOrder:reverse | filter: searchPlayer" ng-include src="'views/player-row.html'" ng-init="player = rank.player;position = rank.player.pos;add = true;selected = false;showplayerimage = false;showteam = true;showpos = true;" ng-show="roster.indexOf(rank.player.name) < 0" class="player-row"></tr>
+				<tr ng-repeat="player in pagedItems[currentPage] | orderBy:sortingOrder:reverse | filter: searchPlayer" ng-include src="'views/player-row.html'" ng-init="position = rank.player.pos;add = true;selected = false;showplayerimage = false;showteam = true;showpos = true;" ng-show="roster.indexOf(player.name) < 0" class="player-row"></tr>
 			</tbody>
 		</table>
 

@@ -1,6 +1,7 @@
-Week: 
-<div class="btn-toolbar">
-	<div ng-repeat="week in weeks" class="btn-group">
-		<a ng-click="setWeek(week)" class="btn btn-default" ng-class="{'active': currentWeek == week}">{{week}}</a>
-	</div>
-</div>
+<nav class="tab-nav margin-no">
+	<ul class="nav nav-list nav-justified">
+		<li ng-repeat="week in weeks" ng-class="{'active': currentWeek == week}">
+			<a class="waves-attach waves-light" data-toggle="tab" href="" ng-click="setWeek(week)">{{week}}</a>
+		</li>
+	</ul>
+</nav>
