@@ -1,14 +1,14 @@
 
 <td class="sort" ng-if="organize == true"><span class="handle">::</span></td>
-<td class="add" ng-if="add == true && selected == false"><a ng-click="select(player)" class="btn btn-raised btn-primary"><span class="glyphicon glyphicon-plus"></span></a></td>
+<td class="add" width="30" ng-if="add == true && selected == false"><a ng-click="select(player)" class="btn btn-flat"><i class="material-icons">add_circle_outline</i></a></td>
 
 <td class="position" ng-if="rosterchange == true"><input type="radio" ng-model="existingPlayer" name="change" ng-change="setExistingPlayer(player.id)" value="{{player.id}}" ng-disabled="rosterdisabled" ng-show="teamsPlayed.indexOf(player.team_id) < 0 && gameWeek >= currentWeek" /></td>
 
-<td class="position" ng-if="showpos == true">{{ my_position || player.my_pos || player.pos }}</td>
+<td class="position" width="40" ng-if="showpos == true">{{ my_position || player.my_pos || player.pos || "BN" }}</td>
 
 <td class="select" ng-if="changeRoster == true"><a name="selectedPosition" ng-href="{{rosterUrl}}/{{team_id}}/{{player.id}}" class="btn btn-primary btn-xs" ng-show="teamsPlayed.indexOf(player.team_id) < 0 && gameWeek >= currentWeek" ng-cloak><span class="glyphicon glyphicon-menu-hamburger"></span></a></td>
 
-<td class="team" width="40">
+<td class="team" ng-if="showteam == true" width="40">
 	<span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id"></span>
 </td>
 
@@ -16,7 +16,8 @@
 	<span class="player-image" ng-if="showplayerimage">
 		<span class="image"><img ng-src="images/players/{{player.id}}.png"></span>
 	</span>
-	<a ng-click="playerDetails(player)" class="btn btn-flat">{{player.name || '(empty)'}}</a>
+	<a ng-click="playerDetails(player)">{{player.name || '(empty)'}}</a>
+  <span class="label">{{ my_position || player.my_pos || player.pos || "BN" }}</span>
 </td>
 
 <td ng-if="showinfo" class="opp">{{info[player.id].opponent || 'N/A'}}</td>
