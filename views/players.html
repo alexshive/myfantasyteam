@@ -17,9 +17,7 @@
 		<select class="form-control" name="position" ng-model="position"  ng-options="option for option in options"></select>
 	</form> -->
 
-<div class="container">
-	<ng-include src="'views/weeks.html'"></ng-include>
-</div>
+<ng-include src="'views/weeks.html'"></ng-include>
 
 <div class="container visible-xx-block visible-xs-block">
 	<table class="table" ng-if="players">
@@ -32,7 +30,7 @@
 	</table>
 </div>
 
-<div class="table-responsive hidden-xx hidden-xs">
+<div class="container table-responsive hidden-xx hidden-xs">
 	<table class="table" ng-if="players">
 		<thead>
 			<tr ng-include src="'views/player-row-header.html'" class="player-row-header" ng-if="!selectedPlayer" ng-init="add = false;showstats = true;selected = false;showpoints = true;"></tr>
@@ -41,5 +39,11 @@
 			<tr ng-repeat="player in players" ng-include src="'views/player-row.html'" ng-init="position = player.pos;add = false;selected = false;showstats = true;showpoints = true;"></tr>
 		</tbody>
 	</table>
-	<br />
 </div>
+
+<div class="form-group text-center">
+	<a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.prevPage()"><span class="icon">chevron_left</span> Prev</a>
+    <a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.nextPage()">Next <span class="icon">chevron_right</span></a>
+</div>
+
+
