@@ -1,6 +1,10 @@
 
 <div class="content-heading">
 	<h1 class="heading">Players</h1>
+	<div class="pull-right buttons">
+		<a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.prevPage()"><span class="icon">chevron_left</span> Prev</a>
+        <a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.nextPage()">Next <span class="icon">chevron_right</span></a>
+	</div>
 </div>
 
 <div class="col-sm-12">
@@ -13,13 +17,29 @@
 		<select class="form-control" name="position" ng-model="position"  ng-options="option for option in options"></select>
 	</form> -->
 
-<ng-include src="'views/weeks.html'"></ng-include>
+<div class="container">
+	<ng-include src="'views/weeks.html'"></ng-include>
+</div>
 
-<table class="table table-striped" ng-if="players">
-	<thead>
-		<tr ng-include src="'views/player-row-header.html'" class="player-row-header" ng-if="!selectedPlayer" ng-init="add = false;showstats = true;selected = false;showpoints = true;"></tr>
-	</thead>
-	<tbody>
-		<tr ng-repeat="player in pagedItems[currentPage] | orderBy:sortingOrder:reverse | filter: searchPlayer" ng-include src="'views/player-row.html'" ng-init="position = player.pos;add = false;selected = false;showstats = true;showpoints = true;"></tr>
-	</tbody>
-</table>
+<div class="container visible-xx-block visible-xs-block">
+	<table class="table" ng-if="players">
+		<thead>
+			<tr ng-include src="'views/player-row-header.html'" class="player-row-header" ng-if="!selectedPlayer" ng-init="add = false;showstats = false;selected = false;showpoints = true;"></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="player in players" ng-include src="'views/player-row.html'" ng-init="position = player.pos;add = false;selected = false;showstats = false;showpoints = true;"></tr>
+		</tbody>
+	</table>
+</div>
+
+<div class="table-responsive hidden-xx hidden-xs">
+	<table class="table" ng-if="players">
+		<thead>
+			<tr ng-include src="'views/player-row-header.html'" class="player-row-header" ng-if="!selectedPlayer" ng-init="add = false;showstats = true;selected = false;showpoints = true;"></tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="player in players" ng-include src="'views/player-row.html'" ng-init="position = player.pos;add = false;selected = false;showstats = true;showpoints = true;"></tr>
+		</tbody>
+	</table>
+	<br />
+</div>

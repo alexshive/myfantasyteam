@@ -1,7 +1,20 @@
-<nav class="tab-nav margin-no">
-	<ul class="nav nav-list nav-justified">
-		<li ng-repeat="week in weeks" ng-class="{'active': currentWeek == week}">
-			<a class="waves-attach waves-light" data-toggle="tab" href="" ng-click="setWeek(week)">{{week}}</a>
-		</li>
-	</ul>
-</nav>
+<div class="hidden-xx">
+	<nav class="tab-nav margin-no weeks">
+		<ul class="nav nav-list nav-justified">
+			<li ng-repeat="week in weeks" ng-class="{'active': currentWeek == week}">
+				<a class="waves-attach waves-light" data-toggle="tab" href="" ng-click="setWeek(week)">{{week}}</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+
+<div class="visible-xx-block">
+	<div class="dropdown">
+	  <a class="btn btn-block dropdown-toggle-btn" data-toggle="dropdown">Week</a>
+	  <ul class="dropdown-menu nav">
+	      <li>
+	          <a ng-repeat="week in weeks" ng-click="setWeek(week)">{{week}}</a>
+	      </li>
+	  </ul>
+	</div>
+</div>
