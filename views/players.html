@@ -3,13 +3,13 @@
 	<h1 class="heading">Players</h1>
 </div>
 
-<ng-include src="'views/weeks.html'"></ng-include>
+<!-- <ng-include src="'views/weeks.html'"></ng-include> -->
 
-<ng-include src="playersList"></ng-include>
+<ng-include src="playersList" ng-show="players"></ng-include>
 
 <div class="form-group text-center">
 	<a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.prevPage()"><span class="icon">chevron_left</span> Prev</a>
   <a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.nextPage()">Next <span class="icon">chevron_right</span></a>
 </div>
 
-
+<br /><br />

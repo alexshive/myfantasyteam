@@ -2,16 +2,16 @@
 	<h1 class="heading">Practice</h1>
 </div>
 
-<ng-include src="'views/weeks.html'"></ng-include>
+<!-- <ng-include src="'views/weeks.html'"></ng-include> -->
 
-<div class="col-sm-12 text-right">
+<div class="col-sm-12 text-right" ng-if="game > 0">
 	<h3>Points: {{your_points}}</h3>
 </div>
 
 <div class="col-sm-12">
     <ng-include src="'views/roster.html'" ng-init="showteam = true;roster = my_players;changeRoster = true;showpos = true;showpoints = true;" ng-if="game > 0"></ng-include>
-  <div ng-if="game < 1 && gameWeek === currentWeek" ng-cloak>
+  <div class="text-center" ng-if="game < 1 && gameWeek === currentWeek" ng-cloak>
     	<h2>Setup your lineup for this week</h2>
-    	<a ng-href="#/practice/draft/{{currentWeek}}" class="btn btn-primary">Enter Draft</a>
+    	<a ng-href="#/practice/draft/{{currentWeek}}" class="btn waves-attach waves-effect">Enter Draft</a>
     </div>
 </div>
