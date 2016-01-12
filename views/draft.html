@@ -13,18 +13,8 @@
   <div class="col-sm-12">
     <h3>Round {{round}}</h3>
   </div>
-
-	<!-- <div class="container table-responsive">
-		<table class="table">
-      <thead>
-        <tr ng-include src="'views/player-row-header.html'" ng-init="add = true;selected = false;showplayerimage = false;showteam = true;showpos = false;showpoints = false;" class="player-row"></tr>
-      </thead>
-			<tbody>
-				<tr ng-repeat="player in players" ng-include src="'views/player-row.html'" ng-init="position = rank.player.pos;add = true;selected = false;showpos=false;showteam=false;showpoints = false;" ng-show="roster.indexOf(player.name) < 0" class="player-row"></tr>
-			</tbody>
-		</table> -->
     
-    <ng-include src="'views/player/list.html'"></ng-include>
+    <ng-include src="playersList"></ng-include>
 
 	</div>
 
