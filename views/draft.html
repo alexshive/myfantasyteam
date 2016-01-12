@@ -8,15 +8,18 @@
 	<div class="alert alert-info text-center" ng-show="draft_order[round] !== uid" ng-cloak>Please wait for your turn in the next round.</div>
 </div>
 
-<div class="col-sm-7">
 
-  <div class="col-sm-12">
-    <h3>Round {{round}}</h3>
+  <div class="col-sm-6">
+    <h3 class="margin-no">Round {{round}}</h3>
   </div>
-    
-    <ng-include src="playersList"></ng-include>
+  <div class="col-sm-6 text-right">
+    <a class="btn waves-attach" data-toggle="menu" href="#rightNav" target="_self" ng-click="viewRoster()">View Roster</a>
+  </div>
 
-	</div>
+  <div class="clearfix"></div>
+  <br />
+    
+  <ng-include src="playersList"></ng-include>
 
 	<div class="form-group text-center">
     <a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.prevPage()"><span class="icon">chevron_left</span> Prev</a>
@@ -24,13 +27,11 @@
   </div>
 
 
-</div>
-
-<div class="col-sm-5">
+<!-- <div class="col-sm-5">
 
 	<h3>Player Roster</h3>
   
    <ng-include src="draftURL" ng-load="roster = my_players;showpos = true;showteam = true;showplayerimage = false;" ng-if="my_players"></ng-include>
   
-</div>
+</div> -->
 
