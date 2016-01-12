@@ -1,21 +1,64 @@
-<h2>Register</h2>
 
-<div class="error bg-danger" ng-cloak ng-show="error">{{error}}</div>
+<ng-include src="'views/error.html'"></ng-include>
 
 <form ng-submit="createNewAccount()">
-		<div class="form-group">
-			<span class="form-label">User: </span>
-			<input name="user" type="text" ng-model="user" class="form-control" />
-		</div>
-		<div class="form-group">
-			<span class="form-label">Password: </span>
-			<input name="password" type="password" ng-model="password" class="form-control" />
-		</div>
-		<div class="form-group">
-			<span class="form-label">Confirm Password: </span>
-			<input name="cpassword" type="password" ng-model="cpassword" class="form-control" />
-		</div>
-		<div class="form-group">
-			<input type="submit" value="Register" class="btn btn-primary" />
-		</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-lg-push-4 col-sm-6 col-sm-push-3">
+        <section class="content-inner">
+          <div class="card-wrap">
+            <div class="card">
+              <div class="card-main">
+                <div class="card-header">
+                  <div class="card-inner">
+                    <h1 class="card-heading">Register</h1>
+                  </div>
+                </div>
+                <div class="card-inner">
+                  <p class="text-center">
+                    <span class="avatar avatar-inline avatar-lg">
+                      <img alt="Register" src="images/users/avatar-001.jpg">
+                    </span>
+                  </p>
+                  <form class="form" action="index.html">
+                    <div class="form-group form-group-label">
+                      <div class="row">
+                        <div class="col-md-10 col-md-push-1">
+                          <label class="floating-label" for="doc_login_username">Username</label>
+                          <input class="form-control" id="user" type="text" ng-model="user" autocomplete="new-password">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-group-label">
+                      <div class="row">
+                        <div class="col-md-10 col-md-push-1">
+                          <label class="floating-label" for="doc_login_password">Password</label>
+                          <input class="form-control" id="pass" type="password" ng-model="password"  autocomplete="new-password">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group form-group-label">
+                      <div class="row">
+                        <div class="col-md-10 col-md-push-1">
+                          <label class="floating-label" for="doc_login_password">Confirm Password</label>
+                          <input class="form-control" id="pass" type="password" ng-model="cpassword"  autocomplete="new-password">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-md-10 col-md-push-1">
+                          <button type="submit" class="btn btn-block waves-attach waves-button">Register</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
 </form>

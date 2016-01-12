@@ -1,6 +1,6 @@
-<div class="content-heading">
-	<h1 class="heading" ng-cloak>Welcome to FantasyZone</h1>
-	<h3 ng-hide="uid" ng-cloak>Battle weekly for pride or prizes. Play for free!</h3>
+<div class="content-heading" ng-if="uid" ng-cloak>
+	<h1 class="heading">Welcome to FantasyZone</h1>
+	<h3>Battle weekly for pride or prizes. Play for free!</h3>
 </div>
 
 <div ng-hide="uid" ng-controller="LoginCtrl" class="col-sm-12" ng-cloak>
@@ -21,7 +21,6 @@
 		<div class="card">
 		    <div class="card-main">
 		        <div class="card-inner">
-		        	
 		        	<p class="card-heading">Top players this week</p>
 					<table class="table">
 						<tr>
