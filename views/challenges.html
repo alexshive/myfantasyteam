@@ -1,94 +1,47 @@
-	
-	<div class="content-heading">
-		<h1 class="heading">Challenges</h1>
-	</div>
+<div class="content-heading">
+  <div class="col-sm-10 col-sm-offset-1">
+   <h3 class="heading">Challenges</h3>
+  </div>
+</div>
 
+<div class="col-sm-10 col-sm-offset-1">
 	<div class="col-sm-12">
-		<ng-include src="'views/weeks.html'"></ng-include>
-	</div>
 
-	<div class="col-sm-4">
-		<h2>Friend Challenges</h2>
-		<div class="card" ng-show="friends.challenges.length === 0" ng-cloak>
-		    <div class="card-main">
-		        <div class="card-inner"> No friend challenges </div>
-		    </div>
-		</div>
-		<ul class="list-group">
-			<li class="list-group-item" ng-repeat="friend in friends.challenges">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="name">{{friend.name}}</div>
-					</div>
-					<div class="col-sm-6 text-right">
+    <div class="card">
+      <div class="card-main">
+        <nav class="margin-top-no tab-nav">
+          <ul class="nav nav-justified">
+            <li class="active">
+              <a class="waves-attach waves-effect" data-toggle="tab" href="#friend_tab" target="_self">Friend Challenges <span class="label" ng-if="friend.challenges.length > 0">{{friend.challenges.length}}</span></a>
+            </li>
+            <li>
+              <a class="waves-attach waves-effect" data-toggle="tab" href="#player_tab" target="_self">Player Challenges <span class="label" ng-if="users.challenges.length > 0">{{users.challenges.length}}</span></a>
+            </li>
+            <li>
+              <a class="waves-attach waves-effect" data-toggle="tab" href="#request_tab" target="_self">Requests <span class="label label-red" ng-if="users.received.length > 0 || friends.received.length > 0">{{users.received.length + friends.received.length}}</span></a>
+            </li>
+          </ul>
+        <div class="tab-nav-indicator"></div></nav>
+        <div class="card-inner">
+          <div class="tab-content">
+            <div class="tab-pane fade active in" id="friend_tab">
+              <p ng-show="friends.challenges.length === 0" ng-cloak>No friend challenges</p>
+              <ng-include src="'views/challenges/list.html'" ng-if="friends.challenges.length > 0" ng-init="challenges = friends.challenges"></ng-include>
+            </div>
+            <div class="tab-pane fade" id="player_tab">
+              <p ng-show="users.challenges.length === 0" ng-cloak>No player challenges.</p>
+              <ng-include src="'views/challenges/list.html'" ng-if="users.challenges.length > 0" ng-init="challenges = users.challenges"></ng-include>
+            </div>
 
-						<a ng-href="#/challenge/{{friend.id}}" ng-if="friends.draftList.indexOf(friend.id) < 0 && friends.gameList.indexOf(friend.id) < 0 && friends.sentList.indexOf(friend.id) < 0 && friends.receivedList.indexOf(friend.id) < 0" class="btn btn-block btn-primary">Challenge</a>
+            <div class="tab-pane fade" id="request_tab">
+              <p ng-show="users.received.length === 0 && friends.received.length === 0" ng-cloak>No challenge requests.</p>
+              <ng-include src="'views/challenges/requests.html'" ng-if="friends.received.length > 0" ng-init="requests = friends.received;isFriend = true;"></ng-include>
+              <ng-include src="'views/challenges/requests.html'" ng-if="users.received.length > 0" ng-init="requests = users.received"></ng-include>
+            </div>
 
-						<span ng-show="friends.sentList.indexOf(friend.id) >= 0 && friends.receivedList.indexOf(friend.id) < 0">Pending response</span>
-
-						<a ng-href="#/draft/{{friend.challenge_id}}" ng-if="friends.draftList.indexOf(friend.id) >= 0" class="btn btn-primary">Enter Draft</a>
-
-						<a ng-if="friends.draftList.indexOf(friend.id) < 0 && friends.gameList.indexOf(friend.id) >= 0" ng-href="#/game/{{friend.challenge_id}}" class="btn btn-success">Game Center</a>
-
-					</div>
-				</div>
-			</li>
-		</ul>
-	</div>
-	<div class="col-sm-4">
-		<h2>Player Challenges</h2>
-		<div class="card" ng-show="users.challenges.length === 0" ng-cloak>
-		    <div class="card-main">
-		        <div class="card-inner"> No player challenges </div>
-		    </div>
-		</div>
-		<ul class="list-group">
-			<li class="list-group-item" ng-repeat="user in users.challenges">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="name">{{user.name}}</div>
-					</div>
-					<div class="col-sm-6 text-right">
-
-						<a ng-href="#/draft/{{user.challenge_id}}" ng-if="users.draftList.indexOf(user.id) >= 0" class="btn btn-primary">Enter Draft</a>
-
-						<a ng-if="users.draftList.indexOf(user.id) < 0 && users.gameList.indexOf(user.id) >= 0" ng-href="#/game/{{user.challenge_id}}" class="btn btn-success">Game Center</a>
-					</div>
-				</div>
-			</li>
-		</ul>
-	</div>
-	<div class="col-sm-4">
-		<h2>Challenge Requests</h2>
-		<div class="card" ng-show="users.received.length === 0 && friends.received.length === 0" ng-cloak>
-		    <div class="card-main">
-		        <div class="card-inner"> No challenge requests </div>
-		    </div>
-		</div>
-		<ul class="list-group">
-			<!-- Friends -->
-			<li class="list-group-item" ng-repeat="friend in friends.received">
-				<div class="row">
-					<div class="col-sm-12 text-center">
-						<div class="name"><b>Friend:</b> {{friend.name}}</div>
-					</div>
-					<div class="col-sm-12 text-center">
-						<a ng-click="acceptChallenge(friend.challenge_id)" class="btn btn-primary">Accept</a>
-						<a ng-click="rejectChallenge(friend.challenge_id)" class="btn btn-danger">Decline</a>
-					</div>
-				</div>
-			</li>
-			<!-- Users -->
-			<li class="list-group-item" ng-repeat="user in users.received">
-				<div class="row">
-					<div class="col-sm-4">
-						<div class="name">{{user.name}}</div>
-					</div>
-					<div class="col-sm-8 text-right buttons">
-						<a ng-click="acceptChallenge(user.challenge_id)" class="btn btn-primary">Accept</a>
-						<a ng-click="rejectChallenge(user.challenge_id)" class="btn btn-danger">Decline</a>
-					</div>
-				</div>
-			</li>
-		</li>
-	</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

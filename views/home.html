@@ -1,15 +1,17 @@
 <div class="content-heading" ng-if="uid" ng-cloak>
-	<h1 class="heading">Welcome to FantasyZone</h1>
-	<h3>Battle weekly for pride or prizes. Play for free!</h3>
+  <div class="col-sm-10 col-sm-offset-1">
+   <h3 class="heading">Welcome to FantasyZone</h1>
+  <p>Battle weekly for pride or prizes. Play for free!</p>
+  </div>
 </div>
 
 <div ng-hide="uid" ng-controller="LoginCtrl" class="col-sm-12" ng-cloak>
 	<ng-include src="'views/login.html'"></ng-include>
 </div>
 
-<div ng-show="uid" ng-cloak>
+<div class="col-sm-10 col-sm-offset-1" ng-show="uid" ng-cloak>
 
-	<div class="col-sm-6">
+	<div class="col-sm-7">
     <div class="card">
         <div class="card-main">
             <div class="card-inner container">
@@ -22,7 +24,7 @@
         </div>
 	</div>
 
-	<div class="col-sm-6">
+	<div class="col-sm-5">
 		
 		<div class="card">
 		    <div class="card-main">

@@ -1,31 +1,20 @@
 <div class="content-heading">
-  <h1 ng-if="!challengeID">Draft</h1>
-  <h1 ng-if="challengeID">Head to Head Draft</h1>
+  <div class="col-sm-7 col-sm-offset-1">
+   <h3 class="heading" ng-if="!challengeID">Draft</h3>
+   <h3 class="heading" ng-if="challengeID">Head to Head Draft</h3>
+   <p class="margin-no">Round {{round}}</p>
+  </div>
+  <div class="col-sm-3 text-right col-sm-pull-1 col-sm-offset-1">
+    <a class="btn waves-attach" data-toggle="menu" href="#rightNav" target="_self" ng-click="viewRoster()">View Roster</a>
+  </div>
 </div>
 
 <div class="col-sm-12" ng-if="draft_order">
   <h3 class="text-center" ng-show="draft_order[round] === uid" ng-cloak>Select a player below</h3>
 	<div class="alert alert-info text-center" ng-show="draft_order[round] !== uid" ng-cloak>Please wait for your turn in the next round.</div>
 </div>
-
-
-  <div class="col-sm-6">
-    <h3 class="margin-no">Round {{round}}</h3>
-  </div>
-  <div class="col-sm-6 text-right">
-    <a class="btn waves-attach" data-toggle="menu" href="#rightNav" target="_self" ng-click="viewRoster()">View Roster</a>
-  </div>
-
-  <div class="clearfix"></div>
-  <br />
     
   <ng-include src="playersList"></ng-include>
-
-	<div class="form-group text-center">
-    <a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.prevPage()"><span class="icon">chevron_left</span> Prev</a>
-      <a class="btn btn-flat waves-attach waves-effect" ng-click="$parent.nextPage()">Next <span class="icon">chevron_right</span></a>
-  </div>
-
 
 <!-- <div class="col-sm-5">
 
