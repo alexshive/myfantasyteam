@@ -1,14 +1,26 @@
 <div class="content-heading">
-	<h1 class="heading">Profile Settings</h1>
+  <div class="col-sm-10 col-sm-offset-1">
+   <h3 class="heading">Profile</h3>
+  </div>
 </div>
 
-<form ng-submit="update()">
-	<div class="col-sm-12">
-		<div class="form-group">
-			<label>Display Name</label>
-			<input type="text" ng-model="newDisplayName" class="form-control" />
-		</div>
+<div class="col-sm-10 col-sm-offset-1">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-main">
 
-		<input type="submit" value="Update Profile" class="btn btn-brand waves-attach waves-button waves-light" />
-	</div>
-</form>
+        <form ng-submit="update()">
+        	<div class="card-inner text-right">
+
+        		<div class="form-group text-left">
+        			<label>Display Name</label>
+        			<input type="text" ng-model="newDisplayName" class="form-control" />
+        		</div>
+
+        		<input type="submit" value="Update Profile" class="btn btn-brand btn-flat waves-attach waves-button waves-light" />
+        	</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@
 
 <!-- <ng-include src="'views/weeks.html'"></ng-include> -->
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-sm-10 col-sm-offset-1">
   <div class="col-sm-12 text-right" ng-if="game > 0">
   	<h3>Points: {{your_points}}</h3>
   </div>
@@ -18,7 +18,7 @@
       <div class="card-inner">
         <div class="text-center" ng-if="game < 1 && gameWeek === currentWeek" ng-cloak>
         	<h2>Setup your lineup for this week</h2>
-        	<a ng-href="#/practice/draft/{{currentWeek}}" class="btn waves-attach waves-effect">Enter Draft</a>
+        	<a ng-href="#/practice/draft/{{currentWeek}}" class="btn btn-flat btn-green waves-effect">Enter Draft</a>
         </div>
       </div>
     </div>
