@@ -1,13 +1,12 @@
 <table class="table table-hover table-stripe">
 	<tbody>
-		<!-- <tr ng-include="'views/player-row.html'" class="player-row" ng-init="showteam = false" ng-repeat="player in my_players"></tr> -->
-    <tr ng-repeat="player in my_players" ng-click="playerDetails(player)" dsata-toggle="menu" href="#rightNav" target="_self">
-      <td width="15">
+    <tr ng-repeat="player in my_players">
+      <td width="120">
         <span class="label">{{ my_position || player.my_pos || player.pos || "BN" }}</span>
         <span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id"></span> 
       </td>
-      <td data-toggle="modal" href="#player_modal">
-        <a class="btn btn-flat player-name" ng-cloak ng-if="player.firstName">{{player.firstName}} {{player.lastName}}</a>
+      <td class="player-name">
+        <span ng-cloak ng-if="player.firstName">{{player.firstName}} {{player.lastName}}</span>
         <a ng-if="!player.firstName">(empty)</a>
       </td>
     </tr>
