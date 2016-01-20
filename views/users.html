@@ -10,40 +10,42 @@
   	<div class="tile-wrap">
       <form ng-submit="deepSearch()">
         <div class="tile">
-            <div class="col-sm-10 form-group">
+            <div class="col-xs-10 col-xx-9 form-group">
               <input type="search" class="form-control" ng-model="searchUser" placeholder="Search User..." />
             </div>
-            <div class="col-sm-2 form-group">
-              <button type="submit" class="btn btn-block waves-attach waves-button" ng-disabled="isSearching === true">Search</button>
-              <a ng-click="clearSearch()" class="btn btn-red waves-attach waves-button" ng-show="searchResults.length > 0" ng-cloak>Clear Results</a>
+            <div class="col-xs-2 col-xx-3 form-group">
+              <button type="submit" class="btn btn-block waves-attach waves-button" ng-disabled="isSearching === true"><span class="icon icon-lg">search</span></button>
+              <!-- <a ng-click="clearSearch()" class="btn btn-red waves-attach waves-button" ng-show="searchResults.length > 0" ng-cloak>Clear Results</a> -->
             </div>
         </div>
       </form>
-  	    <div class="tile" ng-repeat="user in userList">
-  	        <div class="pull-left tile-side"> <div class="avatar avatar-sm"><span class="icon">face</span> </div> </div>
-  	        <div class="tile-action tile-action-show">
-            <ul class="margin-no nav nav-list pull-right">
+  	    <div class="user tile" ng-repeat="user in userList">
+          <div data-toggle="tile">
+  	        <!-- <div class="pull-left tile-side"> <div class="avatar avatar-sm"><span class="icon">face</span> </div> </div> -->
+            <div class="tile-inner"> <span>{{user.username}}</span> </div>
+          </div>
+  	     <div class="tile-footer">
+          <ul class="margin-no nav nav-justified">
   					<li>
-  	        			<a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach waves-button" ng-hide="friends.draftList.indexOf(user.id) >= 0 || users.draftList.indexOf(user.id) >= 0 || users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0">Challenge</a>
-  	        		</li>
-  	     <li>
-          <a disabled ng-show="users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0" class="btn btn-flat waves-attach waves-button" ng-cloak>Challenge Sent</a>
-          </li>
-          <li>
-          <a ng-click="addFriend(user.id)" ng-hide="friendSentRequest.indexOf(user.id) >= 0 || user.status !== 'available'" class="btn btn-flat waves-attach waves-button">Send Friend Request</a>
-          </li>
-          <li>
-          <a class="btn btn-success" disabled ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0">Friends</a>
-          </li>
-          <li>
-          <a class="btn btn-flat waves-attach waves-button" disabled ng-show="user.status === 'sent' || friendSentRequest.indexOf(user.id) >= 0">Friend Request Sent</a>
-          </li>
-          <li>
-          <a ng-click="acceptFriend(user.id)" class="btn btn-flat waves-attach waves-button" ng-show="user.status === 'requested'" ng-hide="friendAccepted.indexOf(user.id) >= 0 || user.status !== 'requested'">Accept Friendship</a>
-          </li>
-  			</ul>
-  	        </div>
-  	        <div class="tile-inner"> <span>{{user.username}}</span> </div>
+  	        	<a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach waves-button" ng-hide="friends.draftList.indexOf(user.id) >= 0 || users.draftList.indexOf(user.id) >= 0 || users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0">Challenge</a>
+  	        </li>
+            <li ng-show="users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0">
+              <a disabled class="btn btn-flat waves-attach waves-button" ng-cloak>Challenge Sent</a>
+            </li>
+            <li ng-hide="friendSentRequest.indexOf(user.id) >= 0 || user.status !== 'available'">
+              <a ng-click="addFriend(user.id)" class="btn btn-flat waves-attach waves-button">Send Friend Request</a>
+            </li>
+            <li ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0">
+              <a class="btn btn-success" disabled>Friends</a>
+            </li>
+            <li ng-show="user.status === 'sent' || friendSentRequest.indexOf(user.id) >= 0">
+              <a class="btn btn-flat waves-attach waves-button" disabled>Friend Request Sent</a>
+            </li>
+            <li ng-show="user.status === 'requested'" ng-hide="friendAccepted.indexOf(user.id) >= 0 || user.status !== 'requested'">
+              <a ng-click="acceptFriend(user.id)" class="btn btn-flat waves-attach waves-button">Accept Friendship</a>
+            </li>
+          </ul>
+  	     </div>
   	    </div>
   	</div>
   </div>
