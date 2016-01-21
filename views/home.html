@@ -1,6 +1,13 @@
 <div class="content-heading" ng-if="uid" ng-cloak>
-  <div class="col-sm-10 col-sm-offset-1">
-   <h3 class="heading">Welcome back, {{displayName || username}}</h1>
+  <div class="col-sm-10 col-sm-offset-1 padding-no">
+      <ul class="nav nav-home nav-justified margin-no">
+        <li>
+          <a class="waves-attach waves-effect" data-toggle="tab" href="#friend_tab" target="_self">Friend Requests <span class="label" ng-if="users.challenges.length > 0">{{users.challenges.length}}</span></a>
+        </li>
+        <li>
+          <a class="waves-attach waves-effect" data-toggle="tab" href="#request_tab" target="_self">Challenge Requests <span class="label label-red" ng-if="users.received.length > 0 || friends.received.length > 0">{{users.received.length + friends.received.length}}</span></a>
+        </li>
+      </ul>
   </div>
 </div>
 
@@ -8,17 +15,45 @@
 	<ng-include src="'views/login.html'"></ng-include>
 </div>
 
-<div class="col-sm-10 col-sm-offset-1" ng-show="uid" ng-cloak>
+<div class="col-sm-10 col-sm-offset-1 home" ng-show="uid" ng-cloak>
 
-	<div class="col-sm-12">
+	<div class="col-sm-12 padding-no">
+
     <div class="card">
-        <div class="card-main">
-            <div class="card-inner container">
-          		<h3 class="margin-no">Current Games</h3>
-              
+      <div class="card-main">
+          <div class="card-inner padding-no container">
+            
+            <div class="pull-left">
+              <span class="avatar avatar-lg"><img src="images/users/avatar-001.jpg"></span>
             </div>
+            <div class="pull-left user">
+              <h4 class="margin-no">{{displayname || username}}</h4>
+              <p class="margin-no">0 wins / 0 losses</p>
+            </div>
+
+
           </div>
         </div>
+    </div>
+
+    <div class="card">
+      <div class="card-main">
+          <div class="card-inner container">
+        		<h3 class="margin-no">Current Games</h3>
+            <ng-include src="'views/challenges/list.html'" ng-if="friends.challenges.length > 0" ng-init="challenges = friends.challenges"></ng-include>
+            <ng-include src="'views/challenges/list.html'" ng-if="users.challenges.length > 0" ng-init="challenges = users.challenges"></ng-include>
+          </div>
+        </div>
+    </div>
+
+    <div class="card">
+      <div class="card-main">
+          <div class="card-inner container">
+            <h3 class="margin-no">Past Games</h3>
+
+          </div>
+        </div>
+    </div>
 	</div>
 
 </div>
