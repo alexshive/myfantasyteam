@@ -1,0 +1,20 @@
+<div class="content-heading">
+  <div class="col-sm-12">
+   <h3 class="heading">Challenge Requests</h3>
+  </div>
+</div>
+
+<div class="col-sm-12">
+
+  <div class="card" ng-show="users.received.length === 0 && friends.received.length === 0" ng-cloak>
+    <div class="card-main">
+      <div class="card-inner">
+            <p>No challenge requests.</p>
+        </div>
+      </div>
+    </div>
+
+    <ng-include src="'views/challenges/requests.html'" ng-if="friends.received.length > 0" ng-init="requests = friends.received;isFriend = true;"></ng-include>
+    <ng-include src="'views/challenges/requests.html'" ng-if="users.received.length > 0" ng-init="requests = users.received"></ng-include>
+
+</div>
