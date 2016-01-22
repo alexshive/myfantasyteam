@@ -29,12 +29,24 @@
   <div class="clearfix"></div>
 
   <div class="card-table table-responsive col-xx-12">
-    <table class="table" title="Friends">
+    <table class="table" title="Users">
       <tbody>
         <tr ng-repeat="user in userList">
           <td><span class="username">{{user.displayname || user.username}}</span></td>
           <td class="text-right">
-            <a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach waves-button" ng-show="users.sentList.indexOf(user.id) < 0">Challenge</a>
+
+            <span ng-show="userChallenges.sentList.indexOf(user.id) < 0"><a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach">Challenge</a></span>
+
+            <span ng-show="userChallenges.sentList.indexOf(user.id) >= 0 || friendChallenges.sentList.indexOf(user.id) >= 0"><a disabled class="btn btn-flat waves-attach" ng-cloak>Challenge Sent</a></span>
+
+            <span ng-hide="friendSentRequest.indexOf(user.id) >= 0 || user.status !== 'available'">
+              <a ng-click="addFriend(user.id)" class="btn btn-flat waves-attach"><i class="icon icon-lg">person_add</i></a>
+            </span>
+
+            <span ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0">
+              <a class="btn btn-flat btn-green btn-disabled"><i class="icon icon-lg">group</i></a>
+            </span>
+
           </td>
         </tr>
       </tbody>

@@ -1,0 +1,10 @@
+<ul class="notifications nav nav-list pull-right padding-right-sm">
+  <li><a ng-href="#/friends">
+      <span class="icon icon-2x" tooltip data-toggle="tooltip" data-placement="bottom" title="Friend Requests" ng-class="{'icon-disabled': friendReceiveRequest.length === 0}">group</span>
+      <span class="label label-red" ng-cloak ng-if="friendReceiveRequest.length > 0">{{friendReceiveRequest.length}}</span>
+    </a></li>
+    <li><a ng-href="#/challenges">
+      <span class="icon icon-2x" ng-class="{'icon-disabled': userChallenges.receivedList.length === 0 && friendChallenges.receivedList.length === 0}" tooltip data-toggle="tooltip" data-placement="bottom" title="Challenges">notifications</span>
+      <span class="label label-red" ng-show="userChallenges.receivedList > 0 || friendChallenges.receivedList.length > 0" ng-cloak>{{userChallenges.receivedList + friendChallenges.receivedList }}</span>
+    </a></li>
+</ul>
