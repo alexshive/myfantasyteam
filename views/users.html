@@ -6,24 +6,18 @@
 
 <div class="table-responsive">
   
-  <div class="col-xs-9 col-xx-6">
+  <div class="col-xx-12">
     <form ng-submit="search()">
       <div class="row">
-          <div class="col-xs-9 hidden-xx">
+          <div class="col-xx-9">
             <input type="search" class="form-control" ng-model="searchUser" placeholder="Search User..." />
           </div>
-          <div class="col-xs-3">
+          <div class="col-xx-3">
             <a ng-click="search()" class="btn btn-block waves-effect"><span class="icon icon-lg">search</span></a>
               <!-- <a ng-click="clearSearch()" ng-show="searchPlayer.length > 0" class="btn btn-flat btn-block btn-default">Clear</a> -->
           </div>
       </div>
     </form>
-  </div>
-  <div class="col-xs-3 col-xx-6 text-right">
-    <a class="btn btn-block waves-effect">
-      <span class="hidden-xx hidden-xs">Edit Friends</span>
-      <span class="visible-xx-block visible-xs-block text-center"><span class="icon icon-lg">edit</span></span>
-    </a>
   </div>
 
   <div class="clearfix"></div>
@@ -35,15 +29,15 @@
           <td><span class="username">{{user.displayname || user.username}}</span></td>
           <td class="text-right">
 
-            <span ng-show="userChallenges.sentList.indexOf(user.id) < 0"><a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach">Challenge</a></span>
+            <span ng-show="userChallenges.sentList.indexOf(user.id) < 0" ng-cloak><a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach">Challenge</a></span>
 
-            <span ng-show="userChallenges.sentList.indexOf(user.id) >= 0 || friendChallenges.sentList.indexOf(user.id) >= 0"><a disabled class="btn btn-flat waves-attach" ng-cloak>Challenge Sent</a></span>
+            <span ng-show="userChallenges.sentList.indexOf(user.id) >= 0 || friendChallenges.sentList.indexOf(user.id) >= 0" ng-cloak><a disabled class="btn btn-flat waves-attach" ng-cloak>Challenge Sent</a></span>
 
-            <span ng-hide="friendSentRequest.indexOf(user.id) >= 0 || user.status !== 'available'">
+            <span ng-hide="friendSentRequest.indexOf(user.id) >= 0 || user.status !== 'available'" ng-cloak>
               <a ng-click="addFriend(user.id)" class="btn btn-flat waves-attach"><i class="icon icon-lg">person_add</i></a>
             </span>
 
-            <span ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0">
+            <span ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0" ng-cloak>
               <a class="btn btn-flat btn-green btn-disabled"><i class="icon icon-lg">group</i></a>
             </span>
 

@@ -9,17 +9,15 @@
 </div>
 
 <div class="col-sm-12">
-  <div class="col-sm-12">
 
-    <div class="card" ng-show="friendReceiveRequest.length === 0" ng-cloak>
-      <div class="card-main">
-        <div class="card-inner">
-          <p>No friend requests</p>
-        </div>
+  <div class="card" ng-show="friendReceiveRequest.length === 0" ng-cloak>
+    <div class="card-main">
+      <div class="card-inner">
+        <p>No friend requests</p>
       </div>
     </div>
+  </div>
 
-    <ng-include src="'views/friends/requests.html'" ng-if="friendReceiveRequest.length > 0"></ng-include>
+  <ng-include src="'views/friends/requests.html'" ng-if="friendReceiveRequest.length > 0"></ng-include>
 
-    </div>
 </div>

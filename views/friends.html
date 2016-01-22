@@ -1,5 +1,5 @@
 <div class="content-heading">
-  <div class="col-xx-12">
+  <div class="col-sm-12">
    <h3 class="heading">Friends</h3>
   </div>
 </div>
@@ -10,5 +10,8 @@
 
 <div class="col-xx-12">
   <p class="text-center" ng-show="myFriends.length === 0" ng-cloak><i class="icon icon-2x">mood_bad</i> No friends</p>
-  <ng-include src="'views/friends/list.html'" ng-if="myFriends.length > 0 && friendChallenges"></ng-include>
 </div>
+
+<div class="clearfix"></div>
+
+  <ng-include src="'views/friends/list.html'" ng-if="myFriends.length > 0 && friendChallenges"></ng-include>
