@@ -1,39 +1,14 @@
 <div class="content-heading">
-  <div class="col-sm-10 col-sm-offset-1">
+  <div class="col-xx-12">
    <h3 class="heading">Friends</h3>
   </div>
 </div>
 
-	<div class="col-sm-12" ng-show="message" ng-cloak>
-		<div class="bg-success text-center"><p>{{message}}</p></div>
-	</div>
+<div class="col-xx-12" ng-show="message" ng-cloak>
+	<div class="bg-success text-center"><p>{{message}}</p></div>
+</div>
 
-<div class="col-sm-10 col-sm-offset-1">
-	<div class="col-sm-12">
-    <div class="card">
-      <div class="card-main">
-        <nav class="margin-top-no tab-nav">
-          <ul class="nav nav-justified">
-            <li class="active">
-              <a class="waves-attach waves-effect" data-toggle="tab" href="#friends_tab" target="_self">Friends</a>
-            </li>
-            <li>
-              <a class="waves-attach waves-effect" data-toggle="tab" href="#requests_tab" target="_self">Requests <span class="label label-red" ng-show="friendReceiveRequest.length > 0">{{friendReceiveRequest.length}}</span></a>
-            </li>
-          </ul>
-        <div class="tab-nav-indicator"></div></nav>
-        <div class="card-inner">
-          <div class="tab-content">
-            <div class="tab-pane fade active in" id="friends_tab">
-              <p ng-show="friends.length === 0" ng-cloak>No friends :(</p>
-              <ng-include src="'views/friends/list.html'" ng-if="friends.length > 0"></ng-include>
-            </div>
-            <div class="tab-pane fade" id="requests_tab">
-              <p ng-show="friendReceiveRequest.length === 0" ng-cloak>No friend requests yet</p>
-              <ng-include src="'views/friends/requests.html'" ng-if="friendReceiveRequest.length > 0"></ng-include>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="col-xx-12">
+  <p class="text-center" ng-show="myFriends.length === 0" ng-cloak><i class="icon icon-2x">mood_bad</i> No friends</p>
+  <ng-include src="'views/friends/list.html'" ng-if="myFriends.length > 0 && friendChallenges"></ng-include>
 </div>

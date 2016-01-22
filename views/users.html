@@ -4,31 +4,50 @@
   </div>
 </div>
 
-
-<div class="col-sm-12">
-  <div class="col-sm-12">
-  	<div class="tile-wrap">
-      <form ng-submit="deepSearch()">
-        <div class="tile">
-            <div class="col-xs-10 col-xx-9 form-group">
-              <input type="search" class="form-control" ng-model="searchUser" placeholder="Search User..." />
-            </div>
-            <div class="col-xs-2 col-xx-3 form-group">
-              <button type="submit" class="btn btn-block waves-attach waves-button" ng-disabled="isSearching === true"><span class="icon icon-lg">search</span></button>
-              <!-- <a ng-click="clearSearch()" class="btn btn-red waves-attach waves-button" ng-show="searchResults.length > 0" ng-cloak>Clear Results</a> -->
-            </div>
-        </div>
-      </form>
-  	    <div class="user tile" ng-repeat="user in userList">
-          <div data-toggle="tile">
-  	        <!-- <div class="pull-left tile-side"> <div class="avatar avatar-sm"><span class="icon">face</span> </div> </div> -->
-            <div class="tile-inner"> <span>{{user.username}}</span> </div>
+<div class="table-responsive">
+  
+  <div class="col-xs-9 col-xx-6">
+    <form ng-submit="search()">
+      <div class="row">
+          <div class="col-xs-9 hidden-xx">
+            <input type="search" class="form-control" ng-model="searchUser" placeholder="Search User..." />
           </div>
-  	     <div class="tile-footer">
-          <ul class="margin-no nav nav-justified">
-  					<li>
-  	        	<a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach waves-button" ng-hide="friends.draftList.indexOf(user.id) >= 0 || users.draftList.indexOf(user.id) >= 0 || users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0">Challenge</a>
-  	        </li>
+          <div class="col-xs-3">
+            <a ng-click="search()" class="btn btn-block waves-effect"><span class="icon icon-lg">search</span></a>
+              <!-- <a ng-click="clearSearch()" ng-show="searchPlayer.length > 0" class="btn btn-flat btn-block btn-default">Clear</a> -->
+          </div>
+      </div>
+    </form>
+  </div>
+  <div class="col-xs-3 col-xx-6 text-right">
+    <a class="btn btn-block waves-effect">
+      <span class="hidden-xx hidden-xs">Edit Friends</span>
+      <span class="visible-xx-block visible-xs-block text-center"><span class="icon icon-lg">edit</span></span>
+    </a>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="card-table table-responsive col-xx-12">
+    <table class="table" title="Friends">
+      <tbody>
+        <tr ng-repeat="user in userList">
+          <td><span class="username">{{user.displayname || user.username}}</span></td>
+          <td class="text-right">
+            <a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach waves-button" ng-show="users.sentList.indexOf(user.id) < 0">Challenge</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!--
+
+<li>
+              <a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach waves-button" ng-hide="friends.draftList.indexOf(user.id) >= 0 || users.draftList.indexOf(user.id) >= 0 || users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0">Challenge</a>
+            </li>
             <li ng-show="users.sentList.indexOf(user.id) >= 0 || friends.sentList.indexOf(user.id) >= 0">
               <a disabled class="btn btn-flat waves-attach waves-button" ng-cloak>Challenge Sent</a>
             </li>
@@ -44,9 +63,6 @@
             <li ng-show="user.status === 'requested'" ng-hide="friendAccepted.indexOf(user.id) >= 0 || user.status !== 'requested'">
               <a ng-click="acceptFriend(user.id)" class="btn btn-flat waves-attach waves-button">Accept Friendship</a>
             </li>
-          </ul>
-  	     </div>
-  	    </div>
-  	</div>
-  </div>
-</div>
+            -->
+
+
