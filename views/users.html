@@ -26,20 +26,24 @@
     <table class="table" title="Users">
       <tbody>
         <tr ng-repeat="user in userList">
-          <td><span class="username">{{user.displayname || user.username}}</span></td>
-          <td class="text-right">
+          <td width="50">
+
+            <span ng-hide="friendSentRequest.indexOf(user.id) >= 0 || user.status !== 'available'" ng-cloak>
+              <a ng-click="addFriend(user.id)" class="btn btn-flat waves-attach"><i class="icon icon-2x">person_add</i></a>
+            </span>
+
+            <span ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0" ng-cloak>
+              <a class="btn btn-flat btn-green btn-disabled"><i class="icon icon-2x">group</i></a>
+            </span>
+          </td>
+          <td>
+            <a class="btn btn-flat username">{{user.displayname || user.username}}</a>
+          </td>
+          <td class="text-right" width="100">
 
             <span ng-show="userChallenges.sentList.indexOf(user.id) < 0" ng-cloak><a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach">Challenge</a></span>
 
             <span ng-show="userChallenges.sentList.indexOf(user.id) >= 0 || friendChallenges.sentList.indexOf(user.id) >= 0" ng-cloak><a disabled class="btn btn-flat waves-attach" ng-cloak>Challenge Sent</a></span>
-
-            <span ng-hide="friendSentRequest.indexOf(user.id) >= 0 || user.status !== 'available'" ng-cloak>
-              <a ng-click="addFriend(user.id)" class="btn btn-flat waves-attach"><i class="icon icon-lg">person_add</i></a>
-            </span>
-
-            <span ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0" ng-cloak>
-              <a class="btn btn-flat btn-green btn-disabled"><i class="icon icon-lg">group</i></a>
-            </span>
 
           </td>
         </tr>

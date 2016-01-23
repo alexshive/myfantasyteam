@@ -14,9 +14,11 @@
 
 	<div class="col-sm-12">
 
+    <h2 class="margin-top-lg">{{displayname || username}}</h2>
+
     <div class="card">
       <div class="card-main">
-          <div class="card-inner container">
+          <div class="card-inner">
         		<h3 class="margin-no">Current Games</h3>
             <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
             <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges"></ng-include>
@@ -26,7 +28,7 @@
 
     <div class="card">
       <div class="card-main">
-          <div class="card-inner container">
+          <div class="card-inner">
             <h3 class="margin-no">Past Games</h3>
             <ng-include src="'views/challenges/list.html'" ng-if="past.challenges.length > 0" ng-init="challenges = past.challenges"></ng-include>
           </div>
