@@ -6,8 +6,10 @@
         <span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id"></span> 
       </td>
       <td class="player-name" ng-click="playerDetails(player)">
-        <span ng-cloak ng-if="player.firstName">{{player.firstName | limitTo: 1}}. {{player.lastName}}</span>
-        <a ng-if="!player.firstName">(empty)</a>
+        <a>
+          <span ng-cloak ng-if="player.firstName">{{player.firstName | limitTo: 1}}. {{player.lastName}}</span>
+          <span ng-if="!player.firstName">(empty)</span>
+        </a>
       </td>
     </tr>
 	</tbody>

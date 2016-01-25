@@ -8,32 +8,48 @@
 
 <div class="home" ng-show="uid" ng-cloak>
 
-  <div class="slideshow">
+  <!-- <div class="slideshow">
 
-  </div>
+  </div> -->
 
-	<div class="col-sm-12">
-
+	<!-- <div class="col-sm-12">
     <h2 class="margin-top-sm padding-top-sm">{{displayname || username}}</h2>
+  </div> -->
 
+  <div class="col-sm-12">
     <div class="card">
       <div class="card-main">
-          <div class="card-inner">
-        		<h3 class="margin-no">Current Games</h3>
+          <div class="card-inner margin-bottom-no">
+            <h3 class="margin-top-no">Current Matchup</h3>
             <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
             <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges"></ng-include>
           </div>
         </div>
     </div>
+  </div>
 
+  <div class="col-sm-6">
     <div class="card">
       <div class="card-main">
-          <div class="card-inner">
-            <h3 class="margin-no">Past Games</h3>
+          <div class="card-inner margin-bottom-no">
+        		<h3 class="margin-top-no">Upcoming Games</h3>
+            <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
+            <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges"></ng-include>
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-main">
+          <div class="card-inner margin-bottom-no">
+            <h3 class="margin-top-no">Past Games</h3>
             <ng-include src="'views/challenges/list.html'" ng-if="past.challenges.length > 0" ng-init="challenges = past.challenges"></ng-include>
           </div>
         </div>
     </div>
+  </div>
 
 
 	</div>
