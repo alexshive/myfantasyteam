@@ -1,4 +1,4 @@
-<ul class="notifications nav nav-list pull-right padding-right-sm">
+<ul class="notifications nav nav-list pull-right padding-right-sm" ng-if="uid">
   <li><a class="logo-btn" ng-href="#/friendRequests">
       <span class="icon icon-2x" tooltip data-toggle="tooltip" data-placement="bottom" title="Friend Requests" ng-class="{'icon-disabled': friendReceiveRequest.length === 0}">group</span>
       <span class="label label-red" ng-cloak ng-if="friendReceiveRequest.length > 0">{{friendReceiveRequest.length}}</span>

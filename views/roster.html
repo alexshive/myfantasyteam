@@ -1,11 +1,11 @@
-<table class="table table-hover table-stripe">
+<table class="table roster table-hover table-stripe">
 	<tbody>
     <tr ng-repeat="player in my_players">
       <td width="120">
         <span class="label">{{ my_position || player.my_pos || player.pos || "BN" }}</span>
         <span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id"></span> 
       </td>
-      <td class="player-name">
+      <td class="player-name" ng-click="playerDetails(player)">
         <span ng-cloak ng-if="player.firstName">{{player.firstName | limitTo: 1}}. {{player.lastName}}</span>
         <a ng-if="!player.firstName">(empty)</a>
       </td>

@@ -21,22 +21,30 @@
   </div>
 
   <div class="clearfix"></div>
-
+  
   <div class="card-table table-responsive col-xx-12">
-    <table class="table" title="Users">
+    <table class="table">
       <tbody>
         <tr ng-repeat="user in userList">
-          <td width="50">
+          <td width="50" class="user-status">
 
-            <span ng-hide="friendSentRequest.indexOf(user.id) >= 0 || user.status !== 'available'" ng-cloak>
+            <span ng-show="user.status === 'available'" ng-cloak>
               <a ng-click="addFriend(user.id)" class="btn btn-flat waves-attach"><i class="icon icon-2x">person_add</i></a>
             </span>
 
-            <span ng-show="user.status === 'accepted' || friendAccepted.indexOf(user.id) >= 0" ng-cloak>
+            <span ng-show="user.status === 'sent'" ng-cloak>
+              <a disabled class="btn btn-flat waves-attach"><i class="icon icon-2x">person</i></a>
+            </span>
+
+            <span ng-show="user.status === 'accepted'" ng-cloak>
               <a class="btn btn-flat btn-green btn-disabled"><i class="icon icon-2x">group</i></a>
             </span>
+
+            <!-- <span class="label" ng-show="user.status === 'sent'">Request Sent</span>
+            <span class="label label-green" ng-show="user.status === 'accepted'">Friends</span> -->
+
           </td>
-          <td>
+          <td class="user-name">
             <a class="btn btn-flat username">{{user.displayname || user.username}}</a>
           </td>
           <td class="text-right" width="100">
