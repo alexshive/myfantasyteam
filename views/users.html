@@ -49,9 +49,9 @@
           </td>
           <td class="text-right" width="100">
 
-            <span ng-show="userChallenges.sentList.indexOf(user.id) < 0" ng-cloak><a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach">Challenge</a></span>
+            <span ng-show="userChallenges.sentList.indexOf(user.id) < 0 && friendChallenges.sentList.indexOf(user.id) < 0" ng-cloak><a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach">Challenge</a></span>
 
-            <span ng-show="userChallenges.sentList.indexOf(user.id) >= 0 || friendChallenges.sentList.indexOf(user.id) >= 0" ng-cloak><a disabled class="btn btn-flat waves-attach" ng-cloak>Challenge Sent</a></span>
+            <span ng-show="userChallenges.sentList.indexOf(user.id) >= 0 || friendChallenges.sentList.indexOf(user.id) >= 0" ng-cloak>Challenge Sent</span>
 
           </td>
         </tr>
