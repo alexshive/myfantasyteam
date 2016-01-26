@@ -1,46 +1,33 @@
-<div class="row">
-
-	<div class="col-sm-6">
-		<h2 class="h2">Game Center</h2>
-	</div>
-	<div class="col-sm-6 text-right">
-		Game week: {{gameWeek}}
-		Current Week: {{currentWeek}}
-		<!-- <a ng-href="#/game/{{gameID}}/settings" class="btn btn-default">Settings</a> -->
-
-	</div>
-
-	<div class="col-sm-12" ng-show="message" ng-cloak>
-		<div class="alert alert-info text-center">{{message}}</div>
-	</div>
+<div class="content-heading">
+  <div class="col-sm-12">
+   <h3 class="heading">Matchup</h3>
+  </div>
 </div>
-<div class="row">
-	<div class="col-sm-6">
-		<div class="row">
-			<div class="col-sm-6">
-				<h3>{{username}}</h3>
-			</div>
-			<div class="col-sm-6 text-right">
-				<h3>{{your_points}}</h3>
-			</div>
+
+<div class="col-sm-6">
+	<div class="row">
+		<div class="col-sm-6">
+			<h3>{{displayname || username}}</h3>
 		</div>
-		<ng-include src="'views/roster.html'" ng-init="showteam = true;roster = my_players;changeRoster = true;showpos = true;showpoints = true;" ng-if="my_players"></ng-include>
-
-	</div>
-
-	<div class="col-sm-6">
-		<div class="row">
-			<div class="col-sm-6">
-				<h3>{{opponent}}</h3>
-			</div>
-			<div class="col-sm-6 text-right">
-				<h3>{{their_points}}</h3>
-			</div>
+		<div class="col-sm-6 text-right">
+			<h3>{{your_points || "0.0"}}</h3>
 		</div>
-
-		<ng-include src="'views/roster.html'" ng-init="showteam = true;roster = their_players;showpos = true;showpoints = true" ng-if="their_players"></ng-include>
-
 	</div>
-
+	<ng-include src="'views/roster.html'" ng-init="showteam = true;changeRoster = true;showpos = true;showpoints = true;" ng-if="my_players"></ng-include>
 
 </div>
+
+<div class="col-sm-6">
+	<div class="row">
+		<div class="col-sm-6">
+			<h3>{{opponent}}</h3>
+		</div>
+		<div class="col-sm-6 text-right">
+			<h3>{{their_points || "0.0"}}</h3>
+		</div>
+	</div>
+
+	<ng-include src="'views/roster.html'" ng-init="showteam = true;my_players = their_players;showpos = true;showpoints = true" ng-if="their_players"></ng-include>
+
+</div>
+

@@ -16,7 +16,7 @@
     <h2 class="margin-top-sm padding-top-sm">{{displayname || username}}</h2>
   </div> -->
 
-  <div class="col-sm-12">
+  <div class="col-sm-6">
     <div class="card">
       <div class="card-main">
           <div class="card-inner margin-bottom-no">
@@ -33,6 +33,18 @@
       <div class="card-main">
           <div class="card-inner margin-bottom-no">
         		<h3 class="margin-top-no">Upcoming Games</h3>
+            <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
+            <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges"></ng-include>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-main">
+          <div class="card-inner margin-bottom-no">
+            <h3 class="margin-top-no">Drafts</h3>
             <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
             <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges"></ng-include>
           </div>
