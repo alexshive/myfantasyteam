@@ -2,7 +2,7 @@
   <!-- <div class="col-sm-10 col-sm-offset-1 padding-no"></div> -->
 </div>
 
-<div ng-hide="uid" ng-controller="LoginCtrl" class="col-sm-12" ng-cloak>
+<div ng-show="!uid" ng-controller="LoginCtrl" class="col-sm-12" ng-cloak>
 	<ng-include src="'views/login.html'"></ng-include>
 </div>
 
@@ -16,43 +16,20 @@
     <h2 class="margin-top-sm padding-top-sm">{{displayname || username}}</h2>
   </div> -->
 
-  <div class="col-sm-6">
+  <div class="col-sm-12">
     <div class="card">
       <div class="card-main">
           <div class="card-inner margin-bottom-no">
             <h3 class="margin-top-no">Current Matchup</h3>
-            <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
-            <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges"></ng-include>
-          </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-main">
-          <div class="card-inner margin-bottom-no">
-        		<h3 class="margin-top-no">Upcoming Games</h3>
-            <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
-            <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges"></ng-include>
-          </div>
-        </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-main">
-          <div class="card-inner margin-bottom-no">
-            <h3 class="margin-top-no">Drafts</h3>
-            <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
-            <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges"></ng-include>
+            <p ng-cloak ng-show="friendChallenges.gameList.length === 0 && userChallenges.gameList.length === 0">No current matchups</p>
+            <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges;game = true;"></ng-include>
+            <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges;game = true;"></ng-include>
           </div>
         </div>
     </div>
   </div>
   
-  <div class="col-sm-6">
+  <!-- <div class="col-sm-6">
     <div class="card">
       <div class="card-main">
           <div class="card-inner margin-bottom-no">
@@ -61,7 +38,7 @@
           </div>
         </div>
     </div>
-  </div>
+  </div> -->
 
 
 	</div>

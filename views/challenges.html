@@ -1,6 +1,6 @@
 <div class="content-heading">
   <div class="col-sm-12">
-   <h3 class="heading">Games</h3>
+   <h3 class="heading">Drafts</h3>
   </div>
 </div>
 
@@ -12,24 +12,25 @@
         <nav class="margin-top-no tab-nav">
           <ul class="nav nav-justified">
             <li class="active">
-              <a class="waves-attach waves-effect" data-toggle="tab" href="#friend_tab" target="_self">Live <span class="label" ng-if="friend.challenges.length > 0">{{friend.challenges.length}}</span></a>
+              <a class="waves-attach waves-effect" data-toggle="tab" href="#friend_tab" target="_self">Friends <span class="label" ng-if="friend.draftList.length > 0">{{friend.draftList.length}}</span></a>
             </li>
             <li>
-              <a class="waves-attach waves-effect" data-toggle="tab" href="#player_tab" target="_self">Upcoming <span class="label" ng-if="users.challenges.length > 0">{{users.challenges.length}}</span></a>
+              <a class="waves-attach waves-effect" data-toggle="tab" href="#player_tab" target="_self">Users <span class="label" ng-if="users.draftList.length > 0">{{users.draftList.length}}</span></a>
             </li>
             <!-- <li>
               <a class="waves-attach waves-effect" data-toggle="tab" href="#request_tab" target="_self">Requests <span class="label label-red" ng-if="users.received.length > 0 || friends.received.length > 0">{{users.received.length + friends.received.length}}</span></a>
             </li> -->
           </ul>
         <div class="tab-nav-indicator"></div></nav>
-        <div class="card-inner">
+        <div class="card-inner margin-top-no">
           <div class="tab-content">
             <div class="tab-pane fade active in" id="friend_tab">
-              <p ng-show="friends.challenges.length === 0" ng-cloak>No friend challenges</p>
-              <ng-include src="'views/challenges/list.html'" ng-if="friends.challenges.length > 0" ng-init="challenges = friends.challenges"></ng-include>
+              <p ng-show="friends.draftList.length === 0" ng-cloak>No friend challenges</p>
+              <ng-include src="'views/challenges/list.html'" ng-if="friends.draftList.length > 0" ng-init="challenges = friendChallenges.challenges"></ng-include>
+              <!-- <ng-include src="'views/challenges/list.html'" ng-if="friends.challenges.length > 0" ng-init="challenges = friends.challenges"></ng-include> -->
             </div>
             <div class="tab-pane fade" id="player_tab">
-              <p ng-show="users.challenges.length === 0" ng-cloak>No player challenges.</p>
+              <p ng-show="users.challenges.length === 0" ng-cloak>No user challenges.</p>
               <ng-include src="'views/challenges/list.html'" ng-if="users.challenges.length > 0" ng-init="challenges = users.challenges"></ng-include>
             </div>
 
