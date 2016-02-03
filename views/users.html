@@ -6,13 +6,13 @@
 
 <div class="table-responsive">
   
-  <div class="col-xx-12">
+  <div class="col-sm-12 hidden-xs hidden-xx">
     <form ng-submit="search()">
       <div class="row">
-          <div class="col-xx-9">
+          <div class="col-sm-11">
             <input type="search" class="form-control" ng-model="searchUser" placeholder="Search User..." />
           </div>
-          <div class="col-xx-3">
+          <div class="col-sm-1">
             <a ng-click="search()" class="btn btn-block waves-effect"><span class="icon icon-lg">search</span></a>
               <!-- <a ng-click="clearSearch()" ng-show="searchPlayer.length > 0" class="btn btn-flat btn-block btn-default">Clear</a> -->
           </div>
@@ -25,15 +25,15 @@
   <div class="card-table table-responsive col-xx-12">
     <table class="table">
       <tbody>
-        <tr ng-repeat="user in userList">
+        <tr ng-repeat="user in users.list">
           <td width="50" class="user-status">
 
             <span ng-show="user.status === 'available'" ng-cloak>
-              <a ng-click="addFriend(user.id)" class="btn btn-flat waves-attach"><i class="icon icon-2x">person_add</i></a>
+              <a ng-click="users.addFriend(user.id)" class="btn btn-flat waves-attach"><i class="icon icon-2x">person_add</i></a>
             </span>
 
             <span ng-show="user.status === 'sent'" ng-cloak>
-              <a disabled class="btn btn-flat waves-attach"><i class="icon icon-2x">record_voice_over</i></a>
+              <a disabled class="btn btn-flat waves-attach"><i class="icon icon-2x">check</i></a>
             </span>
 
             <span ng-show="user.status === 'accepted'" ng-cloak>
