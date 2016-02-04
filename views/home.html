@@ -21,9 +21,9 @@
       <div class="card-main">
           <div class="card-inner margin-bottom-no">
             <h3 class="margin-top-no">Current Matchup</h3>
-            <p ng-cloak ng-show="friendChallenges.gameList.length === 0 && userChallenges.gameList.length === 0">No current matchups</p>
-            <ng-include src="'views/challenges/list.html'" ng-if="friendChallenges.challenges.length > 0" ng-init="challenges = friendChallenges.challenges;game = true;"></ng-include>
-            <ng-include src="'views/challenges/list.html'" ng-if="userChallenges.challenges.length > 0" ng-init="challenges = userChallenges.challenges;game = true;"></ng-include>
+            <p ng-cloak ng-show="!home.challenges.friends.gameList && !home.challenges.users.gameList">No current matchups</p>
+            <ng-include src="'views/challenges/list.html'" ng-if="home.challenges.friends.gameList" ng-init="challenges = home.challenges.friends.challenges;game = true;"></ng-include>
+            <ng-include src="'views/challenges/list.html'" ng-if="home.challenges.users.gameList" ng-init="challenges = home.challenges.users.challenges;game = true;"></ng-include>
           </div>
         </div>
     </div>

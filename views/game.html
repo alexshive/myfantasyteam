@@ -10,24 +10,24 @@
 			<h3>{{displayname || username}}</h3>
 		</div>
 		<div class="col-sm-6 text-right">
-			<h3>{{your_points || "0.0"}}</h3>
+			<h3>{{game.your_points || "0.0"}}</h3>
 		</div>
 	</div>
-	<ng-include src="'views/roster.html'" ng-init="showteam = true;changeRoster = true;showpos = true;showpoints = true;" ng-if="my_players"></ng-include>
+	<ng-include src="'views/roster.html'" ng-init="showteam = true;changeRoster = true;showpos = true;showpoints = true;my_players = game.my_players;week = game.week" ng-if="game.my_players"></ng-include>
 
 </div>
 
 <div class="col-sm-6">
 	<div class="row">
 		<div class="col-sm-6">
-			<h3>{{opponent}}</h3>
+			<h3>{{game.opponent}}</h3>
 		</div>
 		<div class="col-sm-6 text-right">
-			<h3>{{their_points || "0.0"}}</h3>
+			<h3>{{game.their_points || "0.0"}}</h3>
 		</div>
 	</div>
 
-	<ng-include src="'views/roster.html'" ng-init="showteam = true;my_players = their_players;showpos = true;showpoints = true" ng-if="their_players"></ng-include>
+	<ng-include src="'views/roster.html'" ng-init="showteam = true;my_players = game.their_players;showpos = true;showpoints = true;week = game.week" ng-if="game.their_players"></ng-include>
 
 </div>
 
