@@ -9,10 +9,10 @@
 </div>
 
 <div class="col-xx-12">
-  <p class="text-center" ng-show="!friends.data.friends && !friends.loading" ng-cloak><i class="icon icon-2x">mood_bad</i> No friends</p>
+  <p class="text-center" ng-show="!friends.list && !friends.loading" ng-cloak><i class="mdi mdi-emoticon-sad icon-2x"></i> No friends</p>
 </div>
 
 <div class="clearfix"></div>
 
-<ng-include src="'views/friends/list.html'" ng-if="friends.data.friends.list.length > 0" ng-init="friends = friends.data.friends;challenges = friends.data.challenges"></ng-include>
+<ng-include src="'views/friends/list.html'" ng-if="friends.list.length > 0"></ng-include>
 
