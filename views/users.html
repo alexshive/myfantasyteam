@@ -24,32 +24,24 @@
 
   <div class="card-table table-responsive col-xx-12">
     <table class="table">
+      <thead>
+        <tr>
+          <td>Friend</td>
+          <td>User</td>
+          <td class="text-right">Challenge</td>
+        </tr>
+      </thead>
       <tbody>
         <tr ng-repeat="user in users.list">
-          <td width="100" class="user-status">
+          <td width="50" class="user-status">
 
             <span ng-show="user.status === 'available' && users.request.indexOf(user.id) < 0" ng-cloak>
-              <a ng-click="users.addFriend(user)" class="btn btn-green btn-flat waves-attach"><i class="icon icon-2x">person_add</i></a>
-            </span>
-
-            <span ng-show="user.status === 'accepted' && users.request.indexOf(user.id) < 0" ng-cloak>
-              <a class="btn btn-flat btn-disabled"><i class="icon icon-2x">group</i></a>
+              <a ng-click="users.addFriend(user)" class="btn btn-green btn-flat waves-attach"><i class="mdi mdi-account-plus icon-2x"></i></a>
             </span>
 
             <span ng-show="user.status === 'sent' || users.request.indexOf(user.id) >= 0" ng-cloak>
-              <a disabled class="btn btn-flat waves-attach"><i class="icon icon-2x">check</i></a>
+              <a disabled class="btn btn-flat waves-attach"><i class="mdi mdi-account-check icon-2x"></i></a>
             </span>
-
-            <span ng-show="users.challenges.sent.indexOf(user.id) < 0" ng-cloak>
-              <a ng-click="users.challenge(user)" class="btn btn-green btn-flat waves-attach"><i class="mdi mdi-clipboard-account icon-2x"></i></a>
-            </span>
-
-            <span ng-show="users.challenges.sent.indexOf(user.id) >= 0" ng-cloak>
-              <a class="btn btn-disabled btn-flat waves-attach"><i class="mdi mdi-clipboard-check icon-2x"></i></a>
-            </span>
-
-            <!-- <span class="label" ng-show="user.status === 'sent'">Request Sent</span>
-            <span class="label label-green" ng-show="user.status === 'accepted'">Friends</span> -->
 
           </td>
           <td class="user-name">
@@ -57,9 +49,13 @@
           </td>
           <td class="text-right" width="100">
 
-            <span ng-show="userChallenges.sentList.indexOf(user.id) < 0 && friendChallenges.sentList.indexOf(user.id) < 0" ng-cloak><a ng-click="challengePlayer(user.id)" class="btn btn-green btn-flat waves-attach">Challenge</a></span>
+            <span ng-show="users.challenges.sent.indexOf(user.id) < 0" ng-cloak>
+              <a ng-click="users.challenge(user)" class="btn btn-block btn-green btn-flat waves-attach">Challenge</a>
+            </span>
 
-            <span ng-show="userChallenges.sentList.indexOf(user.id) >= 0 || friendChallenges.sentList.indexOf(user.id) >= 0" ng-cloak>Challenge Sent</span>
+            <span ng-show="users.challenges.sent.indexOf(user.id) >= 0" ng-cloak>
+              <a class="btn btn-block btn-disabled btn-flat waves-attach">Challenged</i></a>
+            </span>
 
           </td>
         </tr>
