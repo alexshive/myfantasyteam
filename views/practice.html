@@ -6,7 +6,7 @@
 
 <!-- <ng-include src="'views/weeks.html'"></ng-include> -->
 
-<div class="col-sm-12" ng-show="game === 1" ng-cloak>
+<div class="col-sm-12" ng-show="!isLoading && practice.game > 0" ng-cloak>
   <div class="col-xx-6" ng-if="currentWeek" ng-cloak>
     <h3>Week {{currentWeek}}</h3>
   </div>
@@ -18,7 +18,7 @@
 </div>
 
 <div class="col-sm-12">
-  <div class="card" ng-show="game === 0" ng-cloak>
+  <div class="card" ng-show="!isLoading && practice.game === 0" ng-cloak>
     <div class="card-main">
       <div class="card-inner">
         <div class="text-center">

@@ -1,10 +1,10 @@
 <ul class="notifications nav nav-list pull-right padding-right-sm" ng-if="uid">
-  <li><a class="logo-btn" ng-href="#/friendRequests">
+  <li><a class="logo-btn" ng-href="#/requests/friends">
       <span class="icon icon-2x" tooltip data-toggle="tooltip" data-placement="bottom" title="Friend Requests" ng-class="{'icon-disabled': !friendRequests}">group</span>
       <span class="label label-red" ng-cloak ng-if="friendRequests">{{friendRequests.length}}</span>
     </a></li>
-    <li><a class="logo-btn" ng-href="#/challengeRequests">
-      <span class="icon icon-2x" ng-class="{'icon-disabled': !challengeRequests.users && !challengeRequests.friends}" tooltip data-toggle="tooltip" data-placement="bottom" title="Game Requests">notifications</span>
+    <li><a class="logo-btn" ng-href="#/requests/challenges">
+      <span class="mdi mdi-bell icon-2x" ng-class="{'mdi-bell-ring': challengeRequests.users.length > 0 || challengeRequests.friends.length > 0, 'icon-disabled': challengeRequests.users.length === 0 && challengeRequests.friends.length === 0}" tooltip data-toggle="tooltip" data-placement="bottom" title="Game Requests"></span>
       <span class="label label-red" ng-show="challengeRequests.users.length > 0 || challengeRequests.friends.length > 0" ng-cloak>{{challengeRequests.users.length + challengeRequests.friends.length }}</span>
     </a></li>
     <li class="dropdown"><a class="more logo-btn pull-right" data-toggle="dropdown">
