@@ -12,9 +12,9 @@
             <p>No game requests.</p>
         </div>
       </div>
-    </div>
+  </div>
 
-    <ng-include src="'views/challenges/requests.html'" ng-if="challenges.friends.received.length > 0" ng-init="requests = challenges.friends.received;isFriend = true;"></ng-include>
-    <ng-include src="'views/challenges/requests.html'" ng-if="challenges.users.received.length > 0" ng-init="requests = challenges.users.received"></ng-include>
+    <ng-include src="'views/challenges/requests.html'" ng-if="challenges.friends.received.length > 0" ng-init="requests = challenges.friends.details;isFriend = true;"></ng-include>
+    <ng-include src="'views/challenges/requests.html'" ng-if="challenges.users.received.length > 0" ng-init="requests = challenges.users.details"></ng-include>
 
 </div>
