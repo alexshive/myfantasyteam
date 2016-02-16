@@ -6,7 +6,7 @@
 
 <div class="col-sm-12">
 
-  <div class="card" ng-show="userChallenges.received.length === 0 && friendChallenges.received.length === 0" ng-cloak>
+  <div class="card" ng-show="!challenges.friends.received && !challenges.users.received" ng-cloak>
     <div class="card-main">
       <div class="card-inner">
             <p>No game requests.</p>
@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <ng-include src="'views/challenges/requests.html'" ng-if="friendChallenges.received.length > 0" ng-init="requests = friendChallenges.received;isFriend = true;"></ng-include>
-    <ng-include src="'views/challenges/requests.html'" ng-if="userChallenges.received.length > 0" ng-init="requests = userChallenges.received"></ng-include>
+    <ng-include src="'views/challenges/requests.html'" ng-if="challenges.friends.received.length > 0" ng-init="requests = challenges.friends.received;isFriend = true;"></ng-include>
+    <ng-include src="'views/challenges/requests.html'" ng-if="challenges.users.received.length > 0" ng-init="requests = challenges.users.received"></ng-include>
 
 </div>
