@@ -4,13 +4,9 @@
   </div>
 </div>
 
-<div class="col-sm-12" ng-show="message" ng-cloak>
-  <div class="bg-success text-center"><p>{{message}}</p></div>
-</div>
-
 <div class="col-sm-12">
 
-  <div class="card" ng-show="!friends.received" ng-cloak>
+  <div class="card" ng-show="friends.received.length === 0" ng-cloak>
     <div class="card-main">
       <div class="card-inner">
         <p>No friend requests</p>
@@ -18,6 +14,18 @@
     </div>
   </div>
 
-  <ng-include src="'views/friends/requests.html'" ng-if="friendReceiveRequest.length > 0"></ng-include>
+  <!-- <ng-include src="'views/friends/requests.html'" ng-if="friends.received.length > 0"></ng-include> -->
 
+  <div class="table-responsive" ng-if="friends.received.length > 0">
+    <table class="table table-hover table-stripe">
+      <tbody>
+        <tr ng-repeat="friend in friends.received">
+          <td>{{friend.displayname || friend.username}}</td>
+          <td class="text-right"><a ng-click="friends.confirmFriend(friend)" class="btn btn-flat btn-green">Confirm Request</a></td>
+          <td class="text-right" width="30"><a ng-click="friends.denyFriend(friend)" class="btn btn-flat btn-red">Deny</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
 </div>

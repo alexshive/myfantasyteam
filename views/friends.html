@@ -14,5 +14,5 @@
 
 <div class="clearfix"></div>
 
-<ng-include src="'views/friends/list.html'" ng-if="friends.list.length > 0"></ng-include>
+<ng-include src="'views/friends/list.html'" ng-if="friends.my.list.length > 0" ng-init="friends.details = friends.my.details"></ng-include>
 

@@ -1,5 +1,5 @@
 
-<ng-include src="'views/error.html'"></ng-include>
+<ng-include src="'views/error.html'" ng-init="error = login.error" ng-if="login.error"></ng-include>
 
 <form ng-submit="createNewAccount()">
   <div class="container">
@@ -54,7 +54,7 @@
                       <div class="form-group">
                         <div class="row">
                           <div class="col-sm-10 col-sm-push-1">
-                            <p class="margin-no"><a class="btn btn-flat btn-block waves-attach" ng-href="#/">Back to login</a></p>
+                            <p class="margin-no"><a class="btn btn-flat btn-block waves-attach" ng-click="login.mode = null">Back to login</a></p>
                           </div>
                         </div>
                       </div>

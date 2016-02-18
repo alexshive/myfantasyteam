@@ -1,7 +1,7 @@
 <ul class="notifications nav nav-list pull-right padding-right-sm">
   <li><a class="logo-btn" ng-href="#/requests/friends">
-      <span class="mdi mdi-account-multiple icon-2x" title="Friend Requests" ng-class="{'icon-disabled': !friendRequests}"></span>
-      <span class="label label-red" ng-cloak ng-if="friendRequests">{{friendRequests.length}}</span>
+      <span class="mdi mdi-account-multiple icon-2x" title="Friend Requests" ng-class="{'icon-disabled': main.friendRequests.length === 0}"></span>
+      <span class="label label-red" ng-cloak ng-if="main.friendRequests.length > 0">{{main.friendRequests.length}}</span>
     </a></li>
     <li><a class="logo-btn" ng-href="#/requests/challenges">
       <span class="mdi mdi-bell icon-2x" ng-class="{'mdi-bell-ring': main.challengeRequests.users.length > 0 || main.challengeRequests.friends.length > 0, 'icon-disabled': main.challengeRequests.users.length === 0 && main.challengeRequests.friends.length === 0}" title="Game Requests"></span>
