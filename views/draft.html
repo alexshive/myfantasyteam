@@ -21,4 +21,4 @@
 
 </div>
 
-<ng-include src="'views/player/list.html'" ng-if="my_players"></ng-include>
+<ng-include src="'views/player/list.html'" ng-if="draft.my_players" ng-init="players.position = draft.position"></ng-include>

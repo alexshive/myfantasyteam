@@ -6,7 +6,7 @@
 
 <div class="col-sm-12">
 
-  <div class="card" ng-show="!challenges.friends.received && !challenges.users.received" ng-cloak>
+  <div class="card" ng-show="challenges.friends.received.length === 0 && challenges.users.received.length === 0" ng-cloak>
     <div class="card-main">
       <div class="card-inner">
             <p>No game requests.</p>
