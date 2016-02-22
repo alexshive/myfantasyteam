@@ -1,6 +1,6 @@
 <table class="table roster table-hover table-stripe">
 	<tbody>
-    <tr ng-repeat="player in my_players">
+    <tr ng-repeat="player in draft.my_players">
       <td width="120">
         <span class="label">{{ my_position || player.my_pos || player.pos || "BN" }}</span>
         <span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id"></span> 

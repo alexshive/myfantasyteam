@@ -1,15 +1,15 @@
 <div class="content-heading">
   <div class="col-sm-12">
-   <h3 class="heading" ng-if="!challengeID">Draft</h3>
-   <h3 class="heading" ng-if="challengeID">Head to Head Draft</h3>
+   <h3 class="heading" ng-if="!draft.challengeID">Draft <span class="mdi mdi-chevron-right"></span> Round {{draft.round}}</h3>
+   <h3 class="heading" ng-if="draft.challengeID">Head to Head Draft <span class="mdi mdi-chevron-right"></span> Round {{draft.round}}</h3>
   </div>
 </div>
 
-<div class="col-sm-12" ng-if="draft_order">
+<div class="col-sm-12" ng-if="draft.draft_order">
   
-  <h3 class="text-center margin-top-sm" ng-show="draft_order[round] === uid" ng-cloak>Select a player below</h3>
+  <h3 class="text-center margin-top-sm" ng-show="draft.draft_order[draft.round] === fantasy.uid" ng-cloak>Select a player below</h3>
 
-  <div class="card card-red" ng-show="draft_order[round] !== uid" ng-cloak>
+  <div class="card card-red" ng-show="draft.draft_order[draft.round] !== fantasy.uid" ng-cloak>
     <div class="card-main">
       <div class="card-inner text-center">
         <p>
