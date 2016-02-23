@@ -1,23 +1,24 @@
 <div class="content-heading">
   <div class="col-sm-12">
-   <h3 class="heading">Matchup</h3>
+   <h3 class="heading" ng-show="game.their_players">Matchup</h3>
+   <h3 class="heading" ng-show="!game.their_players">Practice</h3>
   </div>
 </div>
 
-<div class="col-sm-6">
+<div class="col-sm-6" ng-class="{'col-sm-12': !game.their_players}">
 	<div class="row">
 		<div class="col-sm-6">
-			<h3>{{displayname || username}}</h3>
+    	<h3>{{fantasy.displayname || fantasy.username}}</h3>
 		</div>
 		<div class="col-sm-6 text-right">
 			<h3>{{game.your_points || "0.0"}}</h3>
 		</div>
 	</div>
-	<ng-include src="'views/roster.html'" ng-init="showteam = true;changeRoster = true;showpos = true;showpoints = true;my_players = game.my_players;week = game.week" ng-if="game.my_players"></ng-include>
+	<ng-include src="'views/roster.html'" ng-init="showteam = true;changeRoster = true;showpos = true;showpoints = true;draft = game;week = game.week" ng-if="game.my_players"></ng-include>
 
 </div>
 
-<div class="col-sm-6">
+<div class="col-sm-6" ng-show="game.their_players">
 	<div class="row">
 		<div class="col-sm-6">
 			<h3>{{game.opponent}}</h3>

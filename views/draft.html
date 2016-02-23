@@ -1,7 +1,7 @@
 <div class="content-heading">
   <div class="col-sm-12">
-   <h3 class="heading" ng-if="!draft.challengeID">Draft <span class="mdi mdi-chevron-right"></span> Round {{draft.round}}</h3>
-   <h3 class="heading" ng-if="draft.challengeID">Head to Head Draft <span class="mdi mdi-chevron-right"></span> Round {{draft.round}}</h3>
+   <h3 class="heading" ng-if="!draft.game_id">Draft <span ng-if="round"><span class="mdi mdi-chevron-right"></span> Round {{draft.round}}</span></h3>
+   <h3 class="heading" ng-if="draft.game_id">Head to Head Draft <span class="mdi mdi-chevron-right"></span> Round {{draft.round}}</h3>
   </div>
 </div>
 

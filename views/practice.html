@@ -6,7 +6,7 @@
 
 <!-- <ng-include src="'views/weeks.html'"></ng-include> -->
 
-<div class="col-sm-12" ng-show="!isLoading && practice.game > 0" ng-cloak>
+<div class="col-sm-12" ng-show="practice.game > 0" ng-cloak>
   <div class="col-xx-6" ng-if="currentWeek" ng-cloak>
     <h3>Week {{currentWeek}}</h3>
   </div>
@@ -14,16 +14,16 @@
   	<h3>Points: {{your_points || "0.00"}}</h3>
   </div>
 
-  <ng-include src="'views/roster.html'" ng-init="showteam = true;changeRoster = true;showpos = true;showpoints = true;" ng-if="my_players"></ng-include>
+  <ng-include src="'views/roster.html'" ng-init="showteam = true;changeRoster = true;showpos = true;showpoints = true;" ng-if="api.main.my_players"></ng-include>
 </div>
 
 <div class="col-sm-12">
-  <div class="card" ng-show="!isLoading && practice.game === 0" ng-cloak>
+  <div class="card" ng-show="practice.game === 0" ng-cloak>
     <div class="card-main">
       <div class="card-inner">
         <div class="text-center">
         	<h2>Setup your lineup for this week</h2>
-        	<a ng-href="#/practice/draft/{{currentWeek}}" class="btn btn-flat btn-green waves-effect">Enter Draft</a>
+        	<a ng-href="#/draft/" class="btn btn-flat btn-green waves-effect">Enter Draft</a>
         </div>
       </div>
     </div>
