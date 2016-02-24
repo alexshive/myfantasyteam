@@ -6,8 +6,6 @@
 
 <div class="col-sm-12">
 
-	<!-- <div class="col-sm-12"> -->
-
     <div class="card">
       <div class="card-main">
         <nav class="margin-top-no tab-nav">
@@ -16,11 +14,8 @@
               <a class="waves-attach waves-effect" data-toggle="tab" href="#friend_tab" target="_self">Friends <span class="label label-red" ng-if="challenges.friends.draft.length > 0">{{challenges.friends.draft.length}}</span></a>
             </li>
             <li>
-              <a class="waves-attach waves-effect" data-toggle="tab" href="#player_tab" target="_self">Users <span class="label" ng-if="challenges.users.draft.length > 0">{{challenges.users.draft.length}}</span></a>
+              <a class="waves-attach waves-effect" data-toggle="tab" href="#player_tab" target="_self">Users <span class="label label-red" ng-if="challenges.users.draft.length > 0">{{challenges.users.draft.length}}</span></a>
             </li>
-            <!-- <li>
-              <a class="waves-attach waves-effect" data-toggle="tab" href="#request_tab" target="_self">Requests <span class="label label-red" ng-if="users.received.length > 0 || friends.received.length > 0">{{users.received.length + friends.received.length}}</span></a>
-            </li> -->
           </ul>
         <div class="tab-nav-indicator"></div></nav>
         <div class="card-inner margin-top-no">
@@ -28,22 +23,14 @@
             <div class="tab-pane fade active in" id="friend_tab">
               <p ng-show="challenges.friends.draft.length === 0" ng-cloak>No active friend challenges</p>
               <ng-include src="'views/challenges/list.html'" ng-if="challenges.friends.draft.length > 0" ng-init="challenges = challenges.friends.details"></ng-include>
-              <!-- <ng-include src="'views/challenges/list.html'" ng-if="friends.challenges.length > 0" ng-init="challenges = friends.challenges"></ng-include> -->
             </div>
             <div class="tab-pane fade" id="player_tab">
               <p ng-show="challenges.users.draft.length === 0" ng-cloak>No active user challenges.</p>
-              <ng-include src="'views/challenges/list.html'" ng-if="challenges.users.challenges.length > 0" ng-init="challenges = users.challenges"></ng-include>
+              <ng-include src="'views/challenges/list.html'" ng-if="challenges.users.draft.length > 0" ng-init="challenges = challenges.users.details"></ng-include>
             </div>
-
-            <!-- <div class="tab-pane fade" id="request_tab">
-              <p ng-show="users.received.length === 0 && friends.received.length === 0" ng-cloak>No challenge requests.</p>
-              <ng-include src="'views/challenges/requests.html'" ng-if="friends.received.length > 0" ng-init="requests = friends.received;isFriend = true;"></ng-include>
-              <ng-include src="'views/challenges/requests.html'" ng-if="users.received.length > 0" ng-init="requests = users.received"></ng-include>
-            </div> -->
 
           </div>
         </div>
       </div>
     </div>
-  <!-- </div> -->
 </div>
