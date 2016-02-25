@@ -9,15 +9,20 @@
   
   <h3 class="text-center margin-top-sm" ng-show="draft.draft_order[draft.round] === fantasy.uid" ng-cloak>Select a player below</h3>
 
-  <div class="card card-red" ng-show="draft.draft_order[draft.round] !== fantasy.uid" ng-cloak>
-    <div class="card-main">
-      <div class="card-inner text-center">
-        <p>
-          Please wait for your turn in the next round.
-        </p>
+  <div class="col-sm-12" ng-show="draft.draft_order[draft.round] !== fantasy.uid" ng-cloak>
+    <div class="card">
+      <aside class="card-side">
+        <span class="card-heading md-icon md-info-outline"></span>
+      </aside>
+      <div class="card-main">
+        <div class="card-inner">
+          <p class="card-heading">Warning</p>
+          <p>Please wait for your turn in the next round.</p>
+        </div>
       </div>
     </div>
   </div>
+
 
 </div>
 
