@@ -45,7 +45,7 @@
           </td>
           <td class="text-right" width="150">
 
-            <span ng-show="users.challenges.sent.indexOf(user.id) < 0" ng-hide="users.challenges.received.indexOf(user.id) >= 0 || users.challenges.draft.indexOf(user.id) >= 0 || users.challenges.game.indexOf(user.id) >= 0" ng-cloak>
+            <span ng-hide="users.challenges.received.indexOf(user.id) >= 0 || users.challenges.draft.indexOf(user.id) >= 0 || users.challenges.game.indexOf(user.id) >= 0 || users.challenges.sent.indexOf(user.id) >= 0" ng-cloak>
               <a ng-click="users.challenge(user)" class="btn btn-block btn-green btn-flat waves-attach">Challenge</a>
             </span>
 
