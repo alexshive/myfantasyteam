@@ -23,10 +23,9 @@
             </div>
             
             <div ng-cloak ng-if="home.friends.game.length > 0 || home.users.game.length > 0">
-              <h3 class="margin-top-no">Current Matchup</h3>
-              <p>No current matchups</p>
-              <ng-include src="'views/challenges/list.html'" ng-if="home.friends.game.length > 0" ng-init="challenges = home.friends.challenges;game = true;"></ng-include>
-              <ng-include src="'views/challenges/list.html'" ng-if="home.users.game.length > 0" ng-init="challenges = home.users.challenges;game = true;"></ng-include>
+              <h3 class="margin-top-no">Current Matchups</h3>
+              <ng-include src="'views/challenges/list.html'" ng-if="home.friends.game.length > 0" ng-init="challenges = home.friends.details;game = true;"></ng-include>
+              <ng-include src="'views/challenges/list.html'" ng-if="home.users.game.length > 0" ng-init="challenges = home.users.details;game = true;"></ng-include>
             </div>
 
           </div>
