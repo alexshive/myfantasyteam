@@ -1,7 +1,7 @@
 <table class="table roster table-hover table-stripe">
 	<tbody>
     <tr ng-repeat="player in draft.my_players">
-      <td width="50" class="text-center" ng-hide="selected">
+      <td width="50" class="text-center" ng-hide="selected" ng-if="draft.gameId">
         <a class="btn btn-flat" ng-href="#/roster/{{draft.gameId}}/{{player.id}}" ng-hide="available">Change</a>
 
         <div class="radiobtn radiobtn-adv" ng-show="available">
