@@ -6,24 +6,30 @@
 </div>
 
 <div class="col-sm-6" ng-class="{'col-sm-12': !game.their_players}" ng-hide="showPlayerDetails">
-	<div class="row">
-		<div class="col-sm-6">
-    	<h3>{{fantasy.displayname || fantasy.username}}</h3>
+	<div class="match-header">
+    <div class="col-xx-12">
+      <h3>{{fantasy.displayname || fantasy.username}}</h3>
+    </div>
+		<div class="col-xx-6 bg">
+        <h3>{{game.your_points || "0.0"}}</h3>
 		</div>
-		<div class="col-sm-6 text-right">
-			<h3>{{game.your_points || "0.0"}}</h3>
-		</div>
+    <div class="col-xx-6 bg text-right">
+      <div class="h3">
+        <a class="btn btn-flat">Settings</a>
+        <a class="btn btn-flat">Edit</a>
+      </div>
+    </div>
 	</div>
-	<ng-include src="'views/roster.html'" ng-init="showteam = true;draft.my_players = game.my_players;changeRoster = true;showpos = true;showpoints = true;draft = game;week = game.week" ng-if="game.my_players"></ng-include>
+  <ng-include src="'views/roster.html'" ng-init="showteam = true;draft.my_players = game.my_players;changeRoster = true;showpos = true;showpoints = true;draft = game;week = game.week" ng-if="game.my_players"></ng-include>
 
 </div>
 
 <div class="col-sm-6" ng-hide="showPlayerDetails || !game.their_players">
 	<div class="row">
-		<div class="col-sm-6">
+		<div class="col-xx-6">
 			<h3>{{game.opponent.displayname || game.opponent.username}}</h3>
 		</div>
-		<div class="col-sm-6 text-right">
+		<div class="col-xx-6 text-right">
 			<h3>{{game.their_points || "0.0"}}</h3>
 		</div>
 	</div>

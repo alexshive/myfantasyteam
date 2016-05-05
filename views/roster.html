@@ -1,17 +1,33 @@
 <table class="table roster table-hover table-stripe">
 	<tbody>
     <tr ng-repeat="player in draft.my_players">
+      <td width="50" class="text-center" ng-hide="selected">
+        <a class="btn btn-flat" ng-href="#/roster/{{draft.gameId}}/{{player.id}}" ng-hide="available">Change</a>
+
+        <div class="radiobtn radiobtn-adv" ng-show="available">
+            <label for="check{{player.id}}" ng-click="roster.changePlayer(player)">
+                <input class="access-hide" id="check{{player.id}}" name="swap" type="radio">
+                <span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
+            </label>
+        </div>
+
+      </td>
       <td width="120">
         <span class="label">{{ my_position || player.my_pos || player.pos || "BN" }}</span>
         <span class="team-logo {{player.team_abbr | lowercase}}" ng-if="player.id"></span> 
       </td>
-      <td class="player-name" ng-click="playerDetails(player)">
+      <td class="player-name" ng-click="playerDetails(player)" ng-hide="selected || available">
         <a>
           <span ng-cloak ng-if="player.firstName">{{player.firstName | limitTo: 1}}. {{player.lastName}}</span>
           <span ng-if="!player.firstName">(empty)</span>
         </a>
       </td>
-      <td width="50">
+      <td class="player-name" ng-show="selected || available">
+        <label for="check{{player.id}}" ng-click="roster.changePlayer(player)">
+          <span ng-cloak ng-if="player.firstName"><div class="visible-xx-inline">{{player.firstName | limitTo: 1}}.</div><div class="hidden-xx inline">{{player.firstName}}</div> {{player.lastName}}</span>
+        </label>
+      </td>
+      <td width="50" ng-hide="selected || available">
         {{player.stats[week].week_points || "0.00"}}
       </td>
     </tr>

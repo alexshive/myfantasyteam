@@ -1,23 +1,63 @@
+<div class="content-heading">
+  <div class="col-sm-12">
+   <h3 class="heading">Roster Change</h3>
+  </div>
+</div>
 
-<h1>Roster Change</h1>
+<div class="col-sm-12" ng-show="roster.showConfirmation">
+  <div class="card">
+    <div class="card-main">
+      <div class="col-sm-12 roster-change-confirm">
+        <h3 class="text-center">Confirm roster change</h3>
+  
+        <div class="col-sm-6 text-center">
+          <h5>Existing Player</h5>
+          <span class="image avatar" ng-if="roster.selected">
+            <img ng-if="roster.selected[0].nfl_id !== '0'" ng-src="images/players/{{roster.selected[0].nfl_id}}.png" />
+            <img ng-if="roster.selected[0].nfl_id === '0'" ng-src="images/teams/players/{{roster.selected[0].team_id}}.png" />
+          </span>
+          <h3>{{roster.selected[0].firstName}} {{roster.selected[0].lastName}}</h3>
+        </div>
 
-<form ng-submit="updateRoster()">
+        <div class="col-sm-6 text-center">
+          <h5>New Player</h5>
+          <span class="image avatar" ng-if="roster.selected">
+            <img ng-if="roster.newPlayer.nfl_id !== '0'" ng-src="images/players/{{roster.newPlayer.nfl_id}}.png" />
+            <img ng-if="roster.newPlayer.nfl_id === '0'" ng-src="images/teams/players/{{roster.newPlayer.team_id}}.png" />
+          </span>
+          <h3>{{roster.newPlayer.firstName}} {{roster.newPlayer.lastName}}</h3>
+        </div>
 
-	<h3>Selected player</h3>
-	<table class="table table-striped table-hover">
-		<tbody>
-			<tr ng-include src="'views/player-row.html'" ng-init="showpos = true;rosterchange = false;rosterdisabled = true;" class="player-row"></tr>
-		</tbody>
-	</table>
+        <div class="col-sm-12 text-center">
+          <a class="btn btn-flat" ng-click="roster.updateRoster()">Confirm</a>
+        </div>
 
-	<h3>Swap with player</h3>
-	<table class="table table-striped table-hover">
-		<tbody>
-			<tr ng-repeat="r in availableRoster" ng-include src="'views/player-row.html'" ng-init="showpos = true;showteam = true;showplayerimage = false;rosterchange = true;player = r;rosterdisabled = false" class="player-row"></tr>
-		</tbody>
-	</table>
+      </div>
+    </div>
+  </div>
+</div>
 
-	<input type="submit" value="Submit Roster Change" class="btn btn-primary" ng-disabled="!existingPlayer" />
-	<a ng-href="{{backButton}}" class="btn btn-default">Cancel</a>
+<form ng-submit="roster.confirmChange()" ng-hide="showPlayerDetails || roster.showConfirmation">
+  <div class="col-sm-6">
+  	<h3>Selected player</h3>
+  	<div ng-include src="'views/roster.html'" ng-init="draft.my_players = roster.selected;week = roster.week;selected = true" class="player-row" ng-if="roster.selected"></div>
+  </div>
+
+  <div class="col-sm-6">
+  	<h3>Swap with player</h3>
+    <div ng-include src="'views/roster.html'" ng-init="draft.my_players = roster.available;week = roster.week;available = true" class="player-row" ng-if="roster.available"></div>
+  </div>
+  
+  <div class="col-sm-6">
+    <a ng-href="{{backButton}}" class="btn btn-flat">Cancel</a>
+  </div>
+  
+  <div class="col-sm-6 text-right">
+  	<input type="submit" value="Submit Roster Change" class="btn btn-flat" ng-disabled="!roster.newPlayer" />
+  </div>
 
 </form>
+
+<div id="playerDetails" class="col-xx-12 padding-no" ng-show="showPlayerDetails">
+  <ng-include src="'views/player/profile.html'"></ng-include>
+</div>
