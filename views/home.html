@@ -6,15 +6,23 @@
 
 <div class="home">
 
-  <div class="col-sm-12">
+  <div class="col-sm-12" ng-show="home.friends.game.length === 0 && home.users.game.length === 0">
+    <div class="card">
+      <div class="card-main">
+          <div class="card-inner text-center">
+
+            <h3 class="margin-top-no">No current games available for this week</h3>
+            <p>Complete your <a ng-href="#/challenges">drafts</a> and <a ng-href="#/friends">challenge your friends</a></p>
+          </div>
+            
+        </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12" ng-if="home.friends.game.length > 0 || home.users.game.length > 0">
     <div class="card">
       <div class="card-main">
           <div class="col-sm-12">
-
-            <div ng-cloak ng-show="home.friends.game.length === 0 && home.users.game.length === 0" class="text-center">
-              <h3 class="margin-top-no">No current games available for this week</h3>
-              <p>Complete your <a ng-href="#/challenges">drafts</a> and <a ng-href="#/friends">challenge your friends</a></p>
-            </div>
             
             <div ng-cloak ng-if="home.friends.game.length > 0 || home.users.game.length > 0">
               <ng-include src="'views/challenges/list.html'" ng-if="home.friends.game.length > 0" ng-init="challenges = home.friends.details;game = true;"></ng-include>
