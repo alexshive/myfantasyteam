@@ -2,9 +2,13 @@
 Free Fantasy Football webapp using MySQL and AngularJS
 
 ## Screenshots
-Desktop:
+
+### Desktop:
+
 ![image](screenshot-desktop.png)
-Mobile:
+
+### Mobile:
+
 ![image](screenshot-mobile.png)
 
 ## Demo
