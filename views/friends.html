@@ -8,8 +8,17 @@
 	<div class="bg-success text-center"><p>{{message}}</p></div>
 </div>
 
-<div class="col-xx-12">
-  <p class="text-center" ng-show="friends.my.list.length === 0 && !fantasy.loading" ng-cloak><i class="mdi mdi-emoticon-sad icon-2x"></i> No friends</p>
+<div class="col-sm-12" ng-if="friends.my.list.length === 0 && !fantasy.loading" ng-cloak>
+  <div class="card">
+    <div class="card-main">
+      <div class="card-inner">
+        <div class="text-center">
+          <h3 class="margin-top-no">No friends available</h3>
+          <p>Browse the <a ng-href="#/users/">users</a> directory to add friends</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="clearfix"></div>

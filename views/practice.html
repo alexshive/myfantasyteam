@@ -29,9 +29,11 @@
                       <td>Week Practice</td>
                       <td width="300" class="text-right">
 
-                        <a ng-href="#/game/{{practice.game_id}}" class="btn btn-green btn-flat">Game Center</a>
+                        <a ng-href="#/practice/draft" class="btn btn-green btn-flat" ng-if="practice.game == 0">Draft</a>
 
-                        <a ng-href="#/game/{{practice.game_id}}/settings" class="btn btn-green btn-flat">Settings</a>
+                        <a ng-href="#/game/{{practice.game_id}}" class="btn btn-green btn-flat" ng-if="practice.game > 0">Game Center</a>
+
+                        <a ng-href="#/game/{{practice.game_id}}/settings" class="btn btn-green btn-flat" ng-if="practice.game > 0">Settings</a>
 
                       </td>
                     </tr>
