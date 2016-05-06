@@ -2,7 +2,7 @@
 	<tbody>
     <tr ng-repeat="player in draft.my_players">
       <td width="50" class="text-center" ng-hide="selected" ng-if="draft.gameId || available">
-        <a class="btn btn-flat" ng-href="#/roster/{{draft.gameId}}/{{player.id}}" ng-hide="available">Change</a>
+        <a class="btn btn-flat" ng-href="#/roster/{{draft.gameId}}/{{player.id}}" ng-hide="available"><span class="hidden-xx">Change</span> <span class="mdi mdi-account-switch icon-2x visible-xx-inline"></span></a>
 
         <div class="radiobtn radiobtn-adv" ng-show="available">
             <label for="check{{player.id}}" ng-click="roster.changePlayer(player)">

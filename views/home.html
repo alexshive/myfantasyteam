@@ -1,21 +1,15 @@
 <div class="content-heading">
-  <!-- <div class="col-sm-10 col-sm-offset-1 padding-no"></div> -->
+  <div class="col-sm-12">
+    <h3>Current Matchups</h3>
+  </div>
 </div>
 
 <div class="home">
 
-  <!-- <div class="slideshow">
-
-  </div> -->
-
-	<!-- <div class="col-sm-12">
-    <h2 class="margin-top-sm padding-top-sm">{{displayname || username}}</h2>
-  </div> -->
-
   <div class="col-sm-12">
     <div class="card">
       <div class="card-main">
-          <div class="card-inner">
+          <div class="col-sm-12">
 
             <div ng-cloak ng-show="home.friends.game.length === 0 && home.users.game.length === 0" class="text-center">
               <h3 class="margin-top-no">No current games available for this week</h3>
@@ -23,7 +17,6 @@
             </div>
             
             <div ng-cloak ng-if="home.friends.game.length > 0 || home.users.game.length > 0">
-              <h3 class="margin-top-no">Current Matchups</h3>
               <ng-include src="'views/challenges/list.html'" ng-if="home.friends.game.length > 0" ng-init="challenges = home.friends.details;game = true;"></ng-include>
               <ng-include src="'views/challenges/list.html'" ng-if="home.users.game.length > 0" ng-init="challenges = home.users.details;game = true;"></ng-include>
             </div>
@@ -32,17 +25,7 @@
         </div>
     </div>
   </div>
-  
-  <!-- <div class="col-sm-6">
-    <div class="card">
-      <div class="card-main">
-          <div class="card-inner margin-bottom-no">
-            <h3 class="margin-top-no">Past Games</h3>
-            <ng-include src="'views/challenges/list.html'" ng-if="past.challenges.length > 0" ng-init="challenges = past.challenges"></ng-include>
-          </div>
-        </div>
-    </div>
-  </div> -->
+
 
 
 	</div>
