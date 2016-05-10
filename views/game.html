@@ -14,7 +14,7 @@
       <h3>{{game.your_points || "0.0"}}</h3>      
     </div>
 	</div>
-  <ng-include src="'views/roster.html'" ng-init="showteam = true;draft.my_players = game.my_players;changeRoster = true;showpos = true;showpoints = true;draft = game;week = game.week" ng-if="game.my_players"></ng-include>
+  <ng-include src="'views/roster.html'" ng-init="changeButton = true;week = game.week;draft.my_players = game.my_players;draft.game_id = game.game_id;showpoints = true" ng-if="game.my_players"></ng-include>
 
 </div>
 
@@ -28,7 +28,7 @@
     </div>
   </div>
 
-	<ng-include src="'views/roster.html'" ng-init="showteam = true;draft.my_players = game.their_players;showpos = true;showpoints = true;week = game.week" ng-if="game.their_players"></ng-include>
+	<ng-include src="'views/roster.html'" ng-init="draft.my_players = game.their_players;draft.game_id = game.game_id;tradeButton = true;draft.opponent = game.opponent;week = game.week;showpoints = true" ng-if="game.their_players"></ng-include>
 
 </div>
 

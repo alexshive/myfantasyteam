@@ -45,7 +45,7 @@
 
   <div class="col-sm-6">
   	<h3>Swap with player</h3>
-    <div ng-include src="'views/roster.html'" ng-init="draft.my_players = roster.available;week = roster.week;available = true" class="player-row" ng-if="roster.available"></div>
+    <div ng-include src="'views/roster.html'" ng-init="draft.my_players = roster.available;week = roster.week;available = true;draft.gameId = roster.gameId" class="player-row" ng-if="roster.available"></div>
   </div>
   
   <div class="col-sm-6">

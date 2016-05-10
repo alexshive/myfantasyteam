@@ -1,13 +1,23 @@
 <table class="table roster table-hover table-stripe">
 	<tbody>
     <tr ng-repeat="player in draft.my_players">
-      <td width="50" class="text-center" ng-hide="selected" ng-if="draft.gameId || available">
-        <a class="btn btn-flat" ng-href="#/roster/{{draft.gameId}}/{{player.id}}" ng-hide="available"><span class="hidden-xx">Change</span> <span class="mdi mdi-account-switch icon-2x visible-xx-inline"></span></a>
+      <td width="50" class="text-center" ng-hide="selected" ng-if="draft.game_id">
+
+        <a class="btn btn-flat" ng-href="#/roster/{{draft.game_id}}/{{player.id}}" ng-show="changeButton"><span class="hidden-xx">Change</span> <span class="mdi mdi-account-switch icon-2x visible-xx-inline"></span></a>
+        
+        <a class="btn btn-flat" ng-href="#/trade/{{draft.game_id}}/{{draft.opponent.id}}/{{player.id}}" ng-if="tradeButton"><span class="hidden-xx">Trade</span> <span class="mdi mdi-account-switch icon-2x visible-xx-inline"></span></a>
 
         <div class="radiobtn radiobtn-adv" ng-show="available">
             <label for="check{{player.id}}" ng-click="roster.changePlayer(player)">
                 <input class="access-hide" id="check{{player.id}}" name="swap" type="radio">
                 <span class="radiobtn-circle"></span><span class="radiobtn-circle-check"></span>
+            </label>
+        </div>
+        
+        <div class="checkbox checkbox-adv" ng-show="tradeCheck">
+            <label for="trade{{player.id}}" ng-click="trade.clickPlayer(player.id)">
+                <input class="access-hide" id="trade{{player.id}}" value="{{player.id}}" name="trade.players[]" type="checkbox">
+                <span class="checkbox-circle"></span><span class="checkbox-circle-check"></span><span class="checkbox-circle-icon icon"><div class="mdi mdi-check mdi-18px"></div></span>
             </label>
         </div>
 
@@ -27,7 +37,7 @@
           <span ng-cloak ng-if="player.firstName"><div class="visible-xx-inline">{{player.firstName | limitTo: 1}}.</div><div class="hidden-xx inline">{{player.firstName}}</div> {{player.lastName}}</span>
         </label>
       </td>
-      <td width="50" ng-hide="selected || available">
+      <td width="50" ng-hide="selected || available" ng-if="showpoints">
         {{player.stats[week].week_points || "0.00"}}
       </td>
     </tr>

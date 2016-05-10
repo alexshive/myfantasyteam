@@ -1,0 +1,68 @@
+<div class="content-heading">
+  <div class="col-sm-12">
+   <h3 class="heading">Trade</h3>
+  </div>
+</div>
+
+<div class="col-sm-12" ng-show="trade.showConfirmation">
+  <div class="card">
+    <div class="card-main">
+      <div class="col-sm-12 roster-change-confirm">
+        <h3 class="text-center">Confirm trade</h3>
+  
+        <div class="col-sm-6 text-center">
+          <h5>Your Players</h5>
+          <span class="image avatar" ng-if="trade.selected">
+            <img ng-if="trade.selected[0].nfl_id !== '0'" ng-src="images/players/{{trade.selected[0].nfl_id}}.png" />
+            <img ng-if="trade.selected[0].nfl_id === '0'" ng-src="images/teams/players/{{trade.selected[0].team_id}}.png" />
+          </span>
+          <h3>{{trade.selected[0].firstName}} {{trade.selected[0].lastName}}</h3>
+        </div>
+
+        <div class="col-sm-6 text-center">
+          <h5>Their Players</h5>
+          <span class="image avatar" ng-if="trade.selected">
+            <img ng-if="trade.newPlayer.nfl_id !== '0'" ng-src="images/players/{{trade.newPlayer.nfl_id}}.png" />
+            <img ng-if="trade.newPlayer.nfl_id === '0'" ng-src="images/teams/players/{{trade.newPlayer.team_id}}.png" />
+          </span>
+          <h3>{{trade.newPlayer.firstName}} {{trade.newPlayer.lastName}}</h3>
+        </div>
+
+        <div class="col-sm-12 text-center">
+          <a class="btn btn-flat" ng-click="trade.updateRoster()">Confirm</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<form ng-submit="trade.confirmChange()" ng-hide="showPlayerDetails || trade.showConfirmation || !trade.available">
+  
+
+  <div class="col-sm-12">
+
+    <h3>Selected player</h3>
+    <div ng-include src="'views/roster.html'" ng-init="draft.my_players = trade.selected;week = trade.week;selected = true" class="player-row" ng-if="trade.selected"></div>
+
+    <h3>Trade with player</h3>
+    <div ng-include src="'views/roster.html'" ng-init="draft.my_players = trade.available;draft.game_id = trade.game_id;tradeCheck = true" class="player-row" ng-if="trade.available"></div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <a ng-href="#/game/{{trade.game_id}}" class="btn btn-flat">Cancel</a>
+      </div>
+      
+      <div class="col-sm-6 text-right">
+        <input type="submit" value="Send Trade Request" class="btn btn-flat" ng-disabled="!trade.newPlayer" />
+      </div>
+    </div>
+
+  </div>
+
+</form>
+
+<div class="text-center" ng-cloak ng-show="!trade.available && trade.selected">
+  <h4>No players available to change</h4>
+  <a ng-href="#/game/{{trade.game_id}}" class="btn btn-flat">Go back</a>
+</div>
